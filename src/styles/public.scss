@@ -26,3 +26,27 @@ pre{
     color: #555;
     padding-top: 10px;
 }
+.containShadow a {
+    color: #3eaf7c !important;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.G_line{
+    background: #e6f7ff;
+    border-radius: 2px;
+    padding: 2px 10px;
+    margin-top: 5px;
+}
+.G_line .G_line_r, .G_line .G_line_l{
+    display: inline-block;
+    padding: 8px 0;
+}
+.G_line .G_line_r{
+    padding-left: 20px;
+    color: #1890ff;
+}
+.G_space{
+    display: inline-block;
+    width: 1em;
+}

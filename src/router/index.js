@@ -7,10 +7,10 @@ import Layout from '@/layout'
 /* Router Modules */
 import indexRouter from './modules/index'
 import vueRouter from './modules/vueRouter'
+import EsRouter from './modules/Es6Router'
 
 import elementRouter from './modules/elementAdmin'
 /**
- * Note: sub-menu only appear when route children.length >= 1
  * Detail see: https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
  * hidden: true                   是否显示框架
  * alwaysShow: true               //当你一个路由下面的 children 声明的路由大于1个时，自动会变成嵌套的模式--如组件页面
@@ -36,6 +36,7 @@ export const constantRoutes = [
 export const asyncRoutes = [
   // ...vueRouter,
   vueRouter,
+  EsRouter,
   elementRouter,
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }

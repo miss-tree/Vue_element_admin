@@ -9,6 +9,16 @@
         </div>
         <div>
             <pre>
+        require()
+        const Foo = resolve =>{
+            require.ensure(['./Foo.vue',() => {
+            　　resolve(require('./Foo.vue'))
+            }])
+        }
+        /*******/等价于
+        const Foo = resolve => require(['./Foo.vue'], resolve);        
+
+        import()        
         const Foo = () => import('./Foo.vue')
             </pre>
         </div>
@@ -26,9 +36,6 @@
             </div>
             <pre>
         module.exports = file => () => import('@/views/' + file + '.vue') 
-
-        最后优化
-        component: (reslove) => require(['@/views/Vue/webpack/index'],reslove),     
             </pre>
             在项目路由的写法：
             <pre>
