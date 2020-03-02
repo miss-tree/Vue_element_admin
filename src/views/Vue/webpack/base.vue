@@ -26,7 +26,7 @@
             outputDir: 'dist',
             assetsDir: 'static',
             lintOnSave: process.env.NODE_ENV === 'development',
-            productionSourceMap: false,//去除打包环境产生的.map文件
+            productionSourceMap: false,//去除打包环境产生的.map文件  提升 build速度，深度保护源码（不轻易被恶意盗取代码）
             lintOnSave: false ,
             devServer: {
                 port: port,

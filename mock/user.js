@@ -31,7 +31,6 @@ export default [
     response: config => {
       const { username } = config.body
       const token = tokens[username]
-
       // mock error
       if (!token) {
         return {
@@ -39,7 +38,6 @@ export default [
           message: 'Account and password are incorrect.'
         }
       }
-
       return {
         code: 20000,
         data: token
@@ -54,7 +52,6 @@ export default [
     response: config => {
       const { token } = config.query
       const info = users[token]
-
       // mock error
       if (!info) {
         return {
@@ -69,7 +66,6 @@ export default [
       }
     }
   },
-
   // user logout
   {
     url: '/user/logout',

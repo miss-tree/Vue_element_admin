@@ -32,6 +32,7 @@ pre{
     font-size: 14px;
 }
 
+
 .G_line{
     background: #e6f7ff;
     border-radius: 2px;
@@ -46,7 +47,28 @@ pre{
     padding-left: 20px;
     color: #1890ff;
 }
+
+
 .G_space{
     display: inline-block;
     width: 1em;
+}
+
+.G_red{
+    display: inline-block;
+    background:  red;
+    color:#e6f7ff;
+    padding: 5px 6px !important;
+    border-radius: 1px;
+}
+
+
+.containShadow div{
+    padding: 8px 0;
+}
+
+
+.containShadow ul li{
+    padding: 8px 0;
+    font-size: 13px
 }

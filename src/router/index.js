@@ -3,11 +3,12 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 /* Layout */
-import Layout from '@/layout'
+// import Layout from '@/layout'
 /* Router Modules */
 import indexRouter from './modules/index'
 import vueRouter from './modules/vueRouter'
 import EsRouter from './modules/Es6Router'
+import weChat from './modules/Wechat'
 
 import elementRouter from './modules/elementAdmin'
 /**
@@ -37,6 +38,7 @@ export const asyncRoutes = [
   // ...vueRouter,
   vueRouter,
   EsRouter,
+  weChat,
   elementRouter,
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }

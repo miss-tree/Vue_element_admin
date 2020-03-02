@@ -12,7 +12,7 @@ export default {
         return permissionRoles.includes(role)
       })
 
-      if (!hasPermission) {
+      if (!hasPermission) {// 没有权限 移除Dom元素
         el.parentNode && el.parentNode.removeChild(el)
       }
     } else {

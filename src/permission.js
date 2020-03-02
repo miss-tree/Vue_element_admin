@@ -15,7 +15,7 @@ router.beforeEach(async(to, from, next) => {
   document.title = getPageTitle(to.meta.title)//设置头部标题
 
   const hasToken = getToken()//获取用户token
-
+  console.log(hasToken)
   if (hasToken) {
     if (to.path === '/login') {
       next({ path: '/' })

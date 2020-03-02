@@ -45,7 +45,10 @@
         </el-form-item>
       </el-tooltip>
 
-      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
+      <el-button 
+      :loading="loading" type="primary" 
+      style="width:100%;margin-bottom:30px;"
+      @click.native.prevent="handleLogin">Login</el-button>
 
       <div style="position:relative">
         <div class="tips">
@@ -76,6 +79,7 @@
 <script>
 import { validUsername } from '@/utils/validate'
 import SocialSign from './components/SocialSignin'
+import {setToken } from '@/utils/auth'
 
 export default {
   name: 'Login',
@@ -164,6 +168,11 @@ export default {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
+          // this.$emit('SET_TOKEN',{token:"admin-token"})
+          // setToken({token:"admin-token"})
+          // this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
+          // this.loading = false
+              // console.log("hi")
           this.$store.dispatch('user/login', this.loginForm)
             .then(() => {
               this.$router.push({ path: this.redirect || '/', query: this.otherQuery })

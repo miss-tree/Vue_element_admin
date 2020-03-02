@@ -1,4 +1,5 @@
 import { login, logout, getInfo } from '@/api/user'
+// import { logout, getInfo } from '@/api/user'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import router, { resetRouter } from '@/router'
 
@@ -32,9 +33,16 @@ const actions = {
   // user login
   login({ commit }, userInfo) {
     const { username, password } = userInfo
+      // const data = {token:'admin-token'}
+      // commit('SET_TOKEN', data.token)
+      // setToken(data.token)
     return new Promise((resolve, reject) => {
-      login({ username: username.trim(), password: password }).then(response => {
+      console.log("请求前")
+      login({ username: username.trim(), password: password })
+      .then(response => {
+        console.log("请求数据后")
         const { data } = response
+        console.log(response)
         commit('SET_TOKEN', data.token)
         setToken(data.token)
         resolve()
@@ -49,13 +57,22 @@ const actions = {
     return new Promise((resolve, reject) => {
       getInfo(state.token).then(response => {
         const { data } = response
+        console.log(response)
 
         if (!data) {
           reject('Verification failed, please Login again.')
         }
 
-        const { roles, name, avatar, introduction } = data
-
+        // const { roles, name, avatar, introduction } = data
+        
+        /*自己改*/
+        const   roles=["admin"],
+                introduction="I am a super administrator",
+                avatar="https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif",
+                name= "Super Admin";
+                
+                
+                
         // roles must be a non-empty array
         if (!roles || roles.length <= 0) {
           reject('getInfo: roles must be a non-null array!')
