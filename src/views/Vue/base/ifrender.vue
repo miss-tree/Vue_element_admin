@@ -31,10 +31,10 @@
                 基于 key 的变化重新排列元素顺序，并且会移除 key 不存在的元素。
                 列表通过监听数组的方法来确定更新：push()、pop()、shift()、unshift()、
                 splice()、sort()、reverse()</div>
-            <pre>
+            <pre v-pre>
         &lt;ul id="example-2"&gt;
             &lt;li v-for="(item, index) in items" :key="item.index"&gt;
-                        parentMessage
+                        {{parentMessage}}
             &lt;/li&gt;
         &lt;/ul&gt;
 

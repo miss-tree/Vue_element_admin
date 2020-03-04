@@ -267,6 +267,18 @@ const vueRouter =
                 meta: { title: '打包分析',}
               },
               {
+                path: 'usplugins',
+                component: () => import('@/views/Vue/webpack/usplugins'),
+                name: 'usplugins',
+                meta: { title: 'vue@2.x常用配置',}
+              },
+              {
+                path: 'package',
+                component: () => import('@/views/Vue/webpack/package'),
+                name: 'package',
+                meta: { title: '更新package',}
+              },
+              {
                 path: 'jquery',
                 component: () => import('@/views/Vue/webpack/jquery'),
                 name: 'jquery',

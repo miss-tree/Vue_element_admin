@@ -42,9 +42,9 @@ pre{
 .G_line .G_line_r, .G_line .G_line_l{
     display: inline-block;
     padding: 8px 0;
+    padding-left: 20px;
 }
 .G_line .G_line_r{
-    padding-left: 20px;
     color: #1890ff;
 }
 
@@ -71,4 +71,12 @@ pre{
 .containShadow ul li{
     padding: 8px 0;
     font-size: 13px
+}
+
+.G_img img{
+    width: 100%;
+    display: block;
+}
+.G_img img +img{
+    margin-top: 10px;
 }

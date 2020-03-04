@@ -31,8 +31,18 @@
         this.$router.push({name:'组件名')};
 
         this.$router.push({path:'index',query:{id:'123'});  => 带查询参数，变成/index?id=123
-        this.$router.push({path:'xxx',params:{id:'123'});   =>不显示参数，类似 psot 传参
+        this.$router.push({name:'xxx',params:{id:'123'});   =>不显示参数，类似 psot 传参
             </pre>
+        </div>
+        <div>
+            <span class='G_red'>注意</span>
+            <div>
+                注意:params传参，push里面只能是 name:'xxxx',不能是path:'/xxx',因为params只能用name来引入路由，
+                如果这里写成了path，接收参数页面会是undefined！！！
+                直白的来说query相当于get请求，页面跳转的时候，可以在地址栏看到请求参数，
+                而params相当于post请求，参数不会再地址栏中显示
+                注意:传参是this.$router,接收参数是this.$route,这里千万要看清了！！！
+            </div>
         </div>
         <div>
             <h5>this.$router.replace()</h5>
@@ -43,7 +53,7 @@
         this.$router.replace({name:'组件名')};
 
         this.$router.replace({path:'index',query:{id:'123'});  => 带查询参数，变成/index?id=123
-        this.$router.replace({path:'xxx',params:{id:'123'});   =>不显示参数，类似 psot 传参
+        this.$router.replace({name:'xxx',params:{id:'123'});   =>不显示参数，类似 psot 传参
             </pre>
         </div>
         <div>

@@ -1,7 +1,7 @@
 
 import Layout from '@/layout'
 
-const weChat =
+const weChatRouter =
     {
         path: '/wechat',
         component: Layout,
@@ -12,71 +12,57 @@ const weChat =
         },
         children: [
           {
-            path: 'index',
-            component: () => import('@/views/Vue/index'),
-            name: 'hello',
-            meta: { title: '欢迎使用'}
+            path: 'Introduction',
+            component: () => import('@/views/weChat/Introduction'),
+            name: 'Introduction',
+            meta: { title: '小程序入门'}
           },
           {
             path:"base",
-            component: () => import('@/views/Vue/base/index'),
-            redirect: '/vue/base/style',
+            component: () => import('@/views/weChat/index'),
+            redirect: '/wechat/base/chatlife',
             name:"base",
             alwaysShow : true ,
-            meta:{title: 'Vue 基础',},
+            meta:{title: '小程序基础',},
             children:[
               {
-                path: 'style',
-                component: () => import('@/views/Vue/base/style'),
-                name: 'style',
-                meta: { title: '样式类名',}
+                path: 'dataRender',
+                component: () => import('@/views/weChat/base/dataRender'),
+                name: 'dataRender',
+                meta: { title: '数据渲染',}
+              },
+              {
+                path: 'weChatpass',
+                component: () => import('@/views/weChat/base/weChatpass'),
+                name: 'weChatpass',
+                meta: { title: '组件通信',}
+              },
+              {
+                path: 'chatRouter',
+                component: () => import('@/views/weChat/base/chatRouter'),
+                name: 'chatRouter',
+                meta: { title: '路由',}
+              },
+              {
+                path: 'chatlife',
+                component: () => import('@/views/weChat/base/chatlife'),
+                name: 'chatlife',
+                meta: { title: '生命周期',}
               },
             ]
           },{
-            path:"components",
-            component: () => import('@/views/Vue/base/index'),
-            redirect: '/vue/base/style',
-            name:"components",
+            path:"weChatadvance",
+            component: () => import('@/views/weChat/index'),
+            redirect: '/wechat/weChatadvance/weChatMinxins',
+            name:"weChatadvance",
             alwaysShow : true ,
-            meta:{title: '组件 ',},
+            meta:{title: '进阶 ',},
             children:[
               {
-                path: 'split',
-                component: () => import('@/views/Vue/webpack/split'),
-                name: 'split',
-                meta: { title: '组件传值',}
-              },
-            ]
-          },
-          {
-            path:"router",
-            component: () => import('@/views/Vue/base/index'),
-            redirect: '/vue/base/style',
-            name:"router",
-            alwaysShow : true ,
-            meta:{title: 'Vue Router ',},
-            children:[
-              {
-                path: 'style',
-                component: () => import('@/views/Vue/base/style'),
-                name: 'style',
-                meta: { title: '样式类名',}
-              },
-            ]
-          },
-          {
-            path:"vuex",
-            component: () => import('@/views/Vue/base/index'),
-            redirect: '/vue/base/style',
-            name:"vuex",
-            alwaysShow : true ,
-            meta:{title: 'Vuex ',},
-            children:[
-              {
-                path: 'style',
-                component: () => import('@/views/Vue/base/style'),
-                name: 'style',
-                meta: { title: '样式类名',}
+                path: 'weChatMinxins',
+                component: () => import('@/views/weChat/advance/weChatMinxins'),
+                name: 'weChatMinxins',
+                meta: { title: 'behaviors/Component',}
               },
             ]
           },
@@ -86,7 +72,7 @@ const weChat =
             redirect: '/vue/webpack/base',
             name:"webpack 配置",
             alwaysShow : true ,
-            meta:{title: 'webpack 配置',},
+            meta:{title: '插件',},
             children:[
               {
                 path: 'plugin',
@@ -99,4 +85,4 @@ const weChat =
         ]
     }
 
-export default weChat;
+export default weChatRouter;

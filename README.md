@@ -4,9 +4,13 @@
 
 ## Build Setup
 
+
+![mdd](./src/assets/md01.jpg)
+![md03](./src/assets/md02.jpg)
+![md02](./src/assets/md03.jpg)
+![md](./src/assets/md04.jpg)
+
 ``` bash
-# install dependencies
-npm install
 
 # serve with hot reload at localhost:8080
 npm run dev
@@ -18,4 +22,4 @@ npm run build:prod
 npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
