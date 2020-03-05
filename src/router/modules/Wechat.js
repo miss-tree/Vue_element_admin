@@ -64,6 +64,12 @@ const weChatRouter =
                 name: 'weChatMinxins',
                 meta: { title: 'behaviors/Component',}
               },
+              {
+                path: 'relations',
+                component: () => import('@/views/weChat/advance/relations'),
+                name: 'relations',
+                meta: { title: '组件关系',}
+              },
             ]
           },
           {
