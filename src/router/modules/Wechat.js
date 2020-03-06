@@ -49,6 +49,12 @@ const weChatRouter =
                 name: 'chatlife',
                 meta: { title: '生命周期',}
               },
+              {
+                path: 'chatLogin',
+                component: () => import('@/views/weChat/base/chatLogin'),
+                name: 'chatLogin',
+                meta: { title: '登录授权',}
+              },
             ]
           },{
             path:"weChatadvance",
@@ -73,18 +79,36 @@ const weChatRouter =
             ]
           },
           {
-            path:"webpack",
-            component: () => import('@/views/Vue/webpack/index'),
-            redirect: '/vue/webpack/base',
-            name:"webpack 配置",
+            path:"frame",
+            component: () => import('@/views/weChat/index'),
+            redirect: '/weChat/frame/index',
+            name:"frame",
             alwaysShow : true ,
-            meta:{title: '插件',},
+            meta:{title: '第三方框架',},
             children:[
               {
-                path: 'plugin',
-                component: () => import('@/views/Vue/webpack/plugin'),
-                name: 'plugin',
-                meta: { title: '脚手架配置',}
+                path: 'index',
+                component: () => import('@/views/weChat/plugins/mpindex'),
+                name: 'mpindex',
+                meta: { title: '美团mpvue',}
+              },  
+              {
+                path: 'wxparse',
+                component: () => import('@/views/weChat/plugins/wxparse'),
+                name: 'wxparse',
+                meta: { title: 'mpvue-wxparse',}
+              }, 
+              {
+                path: 'WePY',
+                component: () => import('@/views/weChat/plugins/WePY'),
+                name: 'WePY',
+                meta: { title: '微信WePY',}
+              },  
+              {
+                path: 'wepyQa',
+                component: () => import('@/views/weChat/plugins/wepyQa'),
+                name: 'wepyQa',
+                meta: { title: 'WePY常见问题',}
               },  
             ]
           },

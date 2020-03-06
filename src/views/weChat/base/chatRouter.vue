@@ -25,15 +25,26 @@
         </div>
         <div>
             <h5>路由跳转</h5>
-            <p>
-
-                open-type 默认方式是 navigator 相当于 wx.navigateTo()方法，
-            </p>
+            <span>
+                navigator标签相当于html的 a 标签和vue的 link-router 标签
+                open-type 默认方式:
+            </span>
+            <ul>
+                <li>navigator 相当于 wx.navigateTo()方法</li>
+                <li>redirect 相当于 wx.redirectTo()方法</li>
+                <li>switchTab 相当于 wx.switchTab()方法</li>
+                <li>reLaunch 相当于 wx.reLaunch()方法</li>
+                <li>navigateBack 相当于 wx.navigateBack()方法</li>
+            </ul>
             <pre v-pre>
-        &lt;navigator url="pages/info/userinfo" open-type="navigator"&gt;
+        &lt;navigator url="pages/info/userinfo" open-type="navigate"&gt;
             百度
         &lt;/navigator&gt;
+        url 可以是app.json 下的 pages 定义的路由路径，也可以说当前页面的相对路径
 
+        &lt;navigator url="../user/userinfo" open-type="reLaunch"&gt;
+            淘宝
+        &lt;/navigator&gt;
             </pre>
         </div>
     </div>

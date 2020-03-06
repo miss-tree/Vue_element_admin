@@ -33,7 +33,8 @@ export default {
         return{
             list:[
                 {name:"data",explain:"页面的初始数据"},
-                {name:"onLoad()",explain:"生命周期回调—监听页面加载(仅第一次)"},
+                {name:"onLaunch()",explain:"生命周期回调—仅第一次进入小程序时触发,在app.js"},
+                {name:"onLoad()",explain:"生命周期回调—监听页面加载"},
                 {name:"onShow()",explain:"生命周期回调—监听页面显示"},
                 {name:"onReady()",explain:"生命周期回调—监听页面初次渲染完成"},
                 {name:"onHide()",explain:"生命周期回调—监听页面隐藏"},
