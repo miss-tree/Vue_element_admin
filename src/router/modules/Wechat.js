@@ -103,7 +103,31 @@ const weChatRouter =
                 component: () => import('@/views/weChat/plugins/WePY'),
                 name: 'WePY',
                 meta: { title: '微信WePY',}
-              },  
+              },
+              {
+                path: 'WePYconfig',
+                component: () => import('@/views/weChat/plugins/WePYconfig'),
+                name: 'WePYconfig',
+                meta: { title: 'wepy.config.js',}
+              },   
+              {
+                path: 'useWePY',
+                component: () => import('@/views/weChat/plugins/useWePY'),
+                name: 'useWePY',
+                meta: { title: '使用WePY',}
+              },   
+              {
+                path: 'WePYpass',
+                component: () => import('@/views/weChat/plugins/WePYpass'),
+                name: 'WePYpass',
+                meta: { title: '组件传值',}
+              }, 
+              {
+                path: 'wepycomputed',
+                component: () => import('@/views/weChat/plugins/wepycomputed'),
+                name: 'wepycomputed',
+                meta: { title: '计算观察属性',}
+              }, 
               {
                 path: 'wepyQa',
                 component: () => import('@/views/weChat/plugins/wepyQa'),

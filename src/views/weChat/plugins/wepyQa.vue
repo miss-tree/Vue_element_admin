@@ -18,6 +18,7 @@
             <h5></h5>
             <span></span>
             <pre>
+                <a href="https://tencent.github.io/wepy/document.html#/?id=mixin-%e6%b7%b7%e5%90%88" target="_blank">上次阅读文档位置</a>
             </pre>
         </div>
     </div>

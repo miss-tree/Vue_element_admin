@@ -24,10 +24,10 @@
         module.exports = {
             publicPath: './',
             outputDir: 'dist',
-            assetsDir: 'static',
+            assetsDir: 'static',//  dist/static  打包的静态资源
             lintOnSave: process.env.NODE_ENV === 'development',
             productionSourceMap: false,//去除打包环境产生的.map文件  提升 build速度，深度保护源码（不轻易被恶意盗取代码）
-            lintOnSave: false ,
+            lintOnSave: false ,//EsLint
             devServer: {
                 port: port,
                 open: true,
@@ -50,6 +50,7 @@
                     }
                 },
                 after: require('./mock/mock-server.js')
+                //devServer.after:提供在服务器内部在所有其他中间件之后执行自定义中间件的功能,eg:mock.js、node.js服务
             },
             configureWebpack: {
                 plugins : [

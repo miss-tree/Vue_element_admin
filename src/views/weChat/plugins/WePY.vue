@@ -3,7 +3,7 @@
         <div>
             <h4>WePY</h4>
             <p>
-                WePY是微信小程序组件化开发框架。
+                WePY是微信小程序组件化开发框架。但是还是和mpvue一样，还是用小程序的api！！！！
                 <a href="https://tencent.github.io/wepy/document.html#/" target="_blank">
                     查看文档
                 </a>
@@ -55,6 +55,10 @@
 
         //通过继承自wepy.page的类创建页面逻辑
         export default class Index extends wepy.page {
+            //页面配置
+            config = {
+                "navigationBarTitleText": "test",
+            };
             //可用于页面模板绑定的数据
             data = {
                 motto: 'Hello World',

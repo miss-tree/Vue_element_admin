@@ -93,20 +93,20 @@ const EsRouter =
             path: 'promise',
             component: () => import('@/views/ES6/index'),
             name: 'promise',
-            redirect: '/es6/promise/index',
+            redirect: '/es6/promise/promise',
             meta: { title: 'Promise'},
             children:[
               {
-                path: 'index',
-                component: () => import('@/views/ES6/class/index'),
-                name: 'index',
-                meta: { title: 'class',}
+                path: 'promise',
+                component: () => import('@/views/ES6/promise/promise'),
+                name: 'promise',
+                meta: { title: 'promise',}
               }, 
               {
-                path: 'extends',
-                component: () => import('@/views/ES6/class/extends'),
-                name: 'extends',
-                meta: { title: '类的继承',}
+                path: 'promiseAll',
+                component: () => import('@/views/ES6/promise/promiseAll'),
+                name: 'promiseAll',
+                meta: { title: 'Promise.all()',}
               }, 
             ]
           },
@@ -114,22 +114,61 @@ const EsRouter =
             path: 'set',
             component: () => import('@/views/ES6/index'),
             name: 'set',
-            redirect: '/es6/set/index',
+            redirect: '/es6/set/setstructure',
             meta: { title: '数据结构'},
             children:[
               {
-                path: 'index',
-                component: () => import('@/views/ES6/class/index'),
-                name: 'index',
+                path: 'setstructure',
+                component: () => import('@/views/ES6/set/setstructure'),
+                name: 'setstructure',
                 meta: { title: 'Set',}
               }, 
               {
-                path: 'map',
-                component: () => import('@/views/ES6/class/extends'),
-                name: 'map',
+                path: 'mapstructure',
+                component: () => import('@/views/ES6/set/mapstructure'),
+                name: 'mapstructure',
                 meta: { title: 'Map',}
               }, 
+              {
+                path: 'Symbol',
+                component: () => import('@/views/ES6/set/Symbol'),
+                name: 'Symbol',
+                meta: { title: 'Symbol',}
+              }, 
             ]
+          },
+          {
+            path: 'Proxy',
+            component: () => import('@/views/ES6/index'),
+            name: 'Proxy',
+            redirect: 'noRedirect',
+            meta: { title: 'Proxy/Reflect'},
+            children:[
+              {
+                path: 'baseProxy',
+                component: () => import('@/views/ES6/Proxy/baseProxy'),
+                name: 'baseProxy',
+                meta: { title: 'Proxy/Reflect',}
+              }, 
+              // {
+              //   path: 'import',
+              //   component: () => import('@/views/ES6/Proxy/extends'),
+              //   name: 'import',
+              //   meta: { title: 'import',}
+              // }, 
+            ]
+          },
+          {
+            path: 'Genertor',
+            component: () => import('@/views/ES6/Genertor'),
+            name: 'Genertor',
+            meta: { title: 'Genertor'},
+          },
+          {
+            path: 'decorator',
+            component: () => import('@/views/ES6/decorator'),
+            name: 'decorator',
+            meta: { title: '装饰器'},
           },
           {
             path: 'module',
@@ -146,7 +185,7 @@ const EsRouter =
               }, 
               {
                 path: 'import',
-                component: () => import('@/views/ES6/class/extends'),
+                component: () => import('@/views/ES6/module/import'),
                 name: 'import',
                 meta: { title: 'import',}
               }, 
