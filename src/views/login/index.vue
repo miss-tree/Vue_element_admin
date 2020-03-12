@@ -165,17 +165,22 @@ export default {
       })
     },
     handleLogin() {
+      // const url='/api/user/login'
+      // fetch(url,{method: "POST"}).then(function(response) {
+      //   return response.json();
+      // }).then(function(data) {
+      //   console.log(data);
+      // })
+      // .catch(function(e) {
+      //   console.log("Oops, error");
+      // });
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
-          // this.$emit('SET_TOKEN',{token:"admin-token"})
-          // setToken({token:"admin-token"})
-          // this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
-          // this.loading = false
-              // console.log("hi")
           this.$store.dispatch('user/login', this.loginForm)
             .then(() => {
               this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
+              console.log(this.otherQuery)
               this.loading = false
             })
             .catch(() => {

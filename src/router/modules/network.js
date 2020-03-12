@@ -12,10 +12,32 @@ const netWorkRouter =
         },
         children: [
           {
-            path: 'hello',
-            component: () => import('@/views/Vue/hello'),
-            name: 'hello',
-            meta: { title: 'hello Vue'}
+            path: 'linkTCP',
+            component: () => import('@/views/netWork/linkTCP'),
+            name: 'linkTCP',
+            meta: { title: '关于TCP'}
+          },
+          {
+            path:"HTTP",
+            component: () => import('@/views/netWork/index'),
+            redirect: 'noRedirect',
+            name:"HTTP",
+            alwaysShow : true ,
+            meta:{title: '关于HTTP',},
+            children:[
+              {
+                path: 'linkHTTP',
+                component: () => import('@/views/netWork/http/linkHTTP'),
+                name: 'linkHTTP',
+                meta: { title: 'HTTP',}
+              },
+              {
+                path: 'HTTPcode',
+                component: () => import('@/views/netWork/http/HTTPcode'),
+                name: 'HTTPcode',
+                meta: { title: 'HTTP命令',}
+              },
+            ]
           },
           {
             path:"git",

@@ -81,3 +81,31 @@ pre{
 .G_img img +img{
     margin-top: 10px;
 }
+
+.G_table{
+    border: 1px solid #f6f6f6;
+}
+.G_table_h{
+    background: #f6f6f6;
+    display: flex;
+    padding-right: 10px
+}
+.G_table_h span {
+}
+.G_table_title{
+    display: inline-block;
+    padding : 0px 10px;
+    text-align: left;
+    width: 150px !important
+}
+.G_table_describle{
+    padding : 0 10px;
+    flex-grow: 1;
+    line-height: 20px;
+}
+.G_table_tr{
+    display: flex;
+}
+.G_table_tr:nth-of-type(2n){
+    background: #fcfcfc;
+}

@@ -4,7 +4,7 @@ import { getToken, setToken, removeToken } from '@/utils/auth'
 import router, { resetRouter } from '@/router'
 
 const state = {
-  token: getToken(),
+  token: ''||getToken(),
   name: '',
   avatar: '',
   introduction: '',
@@ -33,16 +33,9 @@ const actions = {
   // user login
   login({ commit }, userInfo) {
     const { username, password } = userInfo
-      // const data = {token:'admin-token'}
-      // commit('SET_TOKEN', data.token)
-      // setToken(data.token)
     return new Promise((resolve, reject) => {
-      console.log("请求前")
-      login({ username: username.trim(), password: password })
-      .then(response => {
-        console.log("请求数据后")
+      login({ username: username.trim(), password: password }).then(response => {
         const { data } = response
-        console.log(response)
         commit('SET_TOKEN', data.token)
         setToken(data.token)
         resolve()
@@ -56,6 +49,7 @@ const actions = {
   getInfo({ commit, state }) {
     return new Promise((resolve, reject) => {
       getInfo(state.token).then(response => {
+      // getInfo('admin-token').then(response => {
         const { data } = response
         console.log(response)
 
@@ -63,13 +57,13 @@ const actions = {
           reject('Verification failed, please Login again.')
         }
 
-        // const { roles, name, avatar, introduction } = data
+        const { roles, name, avatar, introduction } = data
         
         /*自己改*/
-        const   roles=["admin"],
-                introduction="I am a super administrator",
-                avatar="https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif",
-                name= "Super Admin";
+        // const   roles=["admin"],
+        //         introduction="I am a super administrator",
+        //         avatar="https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif",
+        //         name= "Super Admin";
                 
                 
                 

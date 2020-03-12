@@ -20,21 +20,30 @@ module.exports = {
   lintOnSave: false ,
   devServer: {
     port: port,
+    hot : true,
     open: true,
     overlay: {
       warnings: false,
       errors: true
     },
     proxy: {
+      // "/":{
+      //     target: 'http://127.0.0.1:3009',
+      //     changeOrigin: true,
+      //   pathRewrite: {
+      //     '^/': '/'
+      //   }
+      // }
       [process.env.VUE_APP_BASE_API]: {
-        target: `http://127.0.0.1:${port}/mock`,
+        // target: `http://127.0.0.1:${port}/mock`,
+        target: 'http://47.92.116.232:5000',
         changeOrigin: true,
         pathRewrite: {
           ['^' + process.env.VUE_APP_BASE_API]: ''
         }
       }
     },
-    after: require('./mock/mock-server.js')
+    // after: require('./mock/mock-server.js')
   },
   configureWebpack: {
     plugins : [
