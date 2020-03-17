@@ -20,6 +20,14 @@
 
         import()        
         const Foo = () => import('./Foo.vue')
+
+        function load (component) {
+            return () => System.import(`components/${component}.vue`)
+        }
+
+        const req = require.context('./', false, /\.routes\.js/))//将所有的路由引进
+        const requireAll = requireContext => requireContext.keys().map(requireContext)
+        requireAll(req)
             </pre>
         </div>
         <div>

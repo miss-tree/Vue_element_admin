@@ -62,6 +62,12 @@ const vueRouter =
                 meta: { title: '计算观察属性',}
               }, 
               {
+                path: 'Anchor',
+                component: () => import('@/views/Vue/base/Anchor'),
+                name: 'Anchor',
+                meta: { title: '锚点跳转',}
+              }, 
+              {
                 path: 'filter',
                 component: () => import('@/views/Vue/base/filter'),
                 name: 'filter',
@@ -138,7 +144,7 @@ const vueRouter =
                 path: 'split',
                 component: () => import('@/views/Vue/webpack/split'),
                 name: 'split',
-                meta: { title: '组件传值',}
+                meta: { title: '路由懒加载',}
               },
             ]
           },
@@ -231,6 +237,12 @@ const vueRouter =
                 component: () => import('@/views/Vue/advance/render'),
                 name: 'render',
                 meta: { title: 'render',}
+              },
+              {
+                path: 'operation',
+                component: () => import('@/views/Vue/advance/operation'),
+                name: 'operation',
+                meta: { title: 'Vue源码骚操作',}
               },
             ]
           },

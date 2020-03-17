@@ -46,25 +46,25 @@ const EsRouter =
                 path: 'stringAdd',
                 component: () => import('@/views/ES6/methods/stringAdd'),
                 name: 'stringAdd',
-                meta: { title: '字符串方法',}
+                meta: { title: '字符串方法'}
               }, 
               {
                 path: 'numberAdd',
                 component: () => import('@/views/ES6/methods/numberAdd'),
                 name: 'numberAdd',
-                meta: { title: '数值扩展',}
+                meta: { title: '数值扩展'}
               }, 
               {
                 path: 'function',
                 component: () => import('@/views/ES6/methods/function'),
                 name: 'function',
-                meta: { title: '函数扩展',}
+                meta: { title: '函数扩展'}
               }, 
               {
                 path: 'array',
                 component: () => import('@/views/ES6/methods/array'),
                 name: 'array',
-                meta: { title: '数组扩展',}
+                meta: { title: '数组扩展'}
               }, 
             ]
           },
@@ -79,13 +79,19 @@ const EsRouter =
                 path: 'index',
                 component: () => import('@/views/ES6/class/index'),
                 name: 'index',
-                meta: { title: 'class',}
+                meta: { title: 'class'}
               }, 
               {
                 path: 'extends',
                 component: () => import('@/views/ES6/class/extends'),
                 name: 'extends',
-                meta: { title: '类的继承',}
+                meta: { title: '类的继承'}
+              }, 
+              {
+                path: 'example',
+                component: () => import('@/views/ES6/class/example'),
+                name: 'example',
+                meta: { title: 'class实例'}
               }, 
             ]
           },
@@ -108,6 +114,12 @@ const EsRouter =
                 name: 'promiseAll',
                 meta: { title: 'Promise.all()',}
               }, 
+              {
+                path: 'promisequestion',
+                component: () => import('@/views/ES6/promise/promisequestion'),
+                name: 'promisequestion',
+                meta: { title: 'Promise问题',}
+              },
             ]
           },
           {
@@ -148,14 +160,8 @@ const EsRouter =
                 path: 'baseProxy',
                 component: () => import('@/views/ES6/Proxy/baseProxy'),
                 name: 'baseProxy',
-                meta: { title: 'Proxy/Reflect',}
+                meta: { title: 'Proxy/Reflect',} 
               }, 
-              // {
-              //   path: 'import',
-              //   component: () => import('@/views/ES6/Proxy/extends'),
-              //   name: 'import',
-              //   meta: { title: 'import',}
-              // }, 
             ]
           },
           {

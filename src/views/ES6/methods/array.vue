@@ -1,7 +1,8 @@
 <template>
     <div>
+        <location :list='list'/>
         <div>
-            <h5>扩展运算符</h5>
+            <h5 id="random">扩展运算符</h5>
             <div>将一个数组转为用逗号分隔的参数序列。</div>
             <pre>
         console.log(1, ...[2, 3, 4], 5)
@@ -43,7 +44,7 @@
             </pre>
         </div>
         <div>
-            <h5>扩展运算符的应用</h5>
+            <h5 id="replace">扩展运算符的应用</h5>
             <div>复制数组</div>
             <pre>
         const a1 = [1, 2];
@@ -102,10 +103,28 @@
 </template>
 
 <script>
-import arrayrest from "./components/arrayrest"
 export default {
     name:'array',
-    components:{arrayrest}
+    components:{
+            arrayrest:()=>import('./components/arrayrest'),
+            location:()=>import('@/components/location/index')
+        },
+    data(){
+        return {
+            list:[
+                {name:'扩展运算符',id:'random'},
+                {name:'扩展运算符的应用',id:'replace'},
+                {name:'Array.from()',id:'from'},
+                {name:'Array.of()',id:'zzhh'},
+                {name:'数组实例',id:'sszz'},
+                {name:'Array.fill()',id:'fill'},
+                {name:'entries/keys/values',id:'entries'},
+                {name:'includes()',id:'includes'},
+                {name:'flat/flatMap',id:'flatMap'},
+                {name:'sort',id:'sort'},
+            ]
+        }
+    }
 }
 </script>
 

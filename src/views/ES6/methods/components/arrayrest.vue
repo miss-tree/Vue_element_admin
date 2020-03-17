@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-            <h5>Array.from()</h5>
+            <h5 id="from">Array.from()</h5>
             <div>Array.from将伪转为真正的新数组</div>
             <pre>
         /*/ ES5的写法
@@ -28,7 +28,7 @@
             </pre>
         </div>
         <div>
-            <h5>Array.of()</h5>
+            <h5 id="zzhh">Array.of()</h5>
             <div>Array.of方法用于将一组值，转换为数组。</div>
             <pre>
         Array.of(3, 11, 8) => [3,11,8]
@@ -63,7 +63,7 @@
             </pre>
         </div>
         <div>
-            <h5>数组实例的 find() 和 findIndex()</h5>
+            <h5 id="sszz">数组实例的 find() 和 findIndex()</h5>
             <p>数组实例的find方法，用于找出第一个符合条件的数组成员。
                 它的参数是一个回调函数，所有数组成员依次执行该回调函数，
                 直到找出第一个返回值为true的成员，然后返回该成员。
@@ -89,7 +89,7 @@
             </pre>    
         </div>
         <div>
-            <h5>数组实例的 fill()</h5>
+            <h5 id="fill">数组实例的 fill()</h5>
             <pre>
         ['a', 'b', 'c'].fill(7)
         => [7, 7, 7]
@@ -114,7 +114,7 @@
             </pre>
         </div>
         <div>
-            <h5>数组实例的 entries()，keys() 和 values()</h5>
+            <h5 id="entries">数组实例的 entries()，keys() 和 values()</h5>
             <div>keys()是对键名的遍历、values()是对键值的遍历，entries()是对键值对的遍历。</div>
             <pre>
         for (let index of ['a', 'b'].keys()) {
@@ -144,7 +144,7 @@
             </pre>
         </div>
         <div>
-            <h5>数组实例的 includes()</h5>
+            <h5 id="includes">数组实例的 includes()</h5>
             <div>对于一个数组判断出一个布尔值</div>
             <pre>
         [1, 2, 3].includes(2)     // true        
@@ -153,7 +153,7 @@
             </pre>
         </div>
         <div>
-            <h5>数组实例的 flat()，flatMap()</h5>
+            <h5 id="flatMap">数组实例的 flat()，flatMap()</h5>
             <div>将多维数组变成一维的数组。该方法返回一个新数组，对原数据没有影响。</div>
             <pre>
         [1, 2, [3, 4]].flat()
@@ -175,11 +175,27 @@
             </pre>
         </div>
         <div>
-            <h5>Array.prototype.sort() 的排序稳定性</h5>
+            <h5 id="sort">Array.prototype.sort() 的排序稳定性</h5>
             <div class="G_line">
                 <span class="G_line_r">arr.sort((a,b)=>a-b)</span>
             </div>
             <div>主要讲下快速排序方法</div>
+            <pre v-pre>
+        function quickSort (arr) {
+            if （arr.length &lt;= 1） {return arr}
+            var destIndex = Math.floor(arr.length/2)    //既然是随机取，也可以直接取第一个 
+            var left = [], right = [];
+            var dest = arr.splice(destIndex,1)[0];
+            for (var i =0;i&lt;arr.length;i++){
+                if (arr[i]&lt;dest) {
+                    left.push(arr[i])
+                } else {
+                    right.push(arr[i]) 
+                }
+            }
+            return quickSort(left).concat([dest],quickSort(right)   //不断递归将数据拼接
+        }
+            </pre>
         </div>
     </div>
 </template>

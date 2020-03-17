@@ -14,6 +14,7 @@
                 <li><a href="https://www.npmjs.com/package/vue-cropper" target="_blank">裁剪 vue-cropper</a></li>
                 <li><a href="https://github.com/lavas-project/vue-skeleton-webpack-plugin" target="_blank">骨架屏vue-skeleton-webpack-plugin</a></li>
                 <li><a href="https://github.com/MopTym/vue-waterfall" target="_blank">瀑布流 vue-waterfall</a></li>
+                <li><a href="https://www.npmjs.com/package/clipboard" target="_blank">复制粘贴模块 clipboard</a></li>
             </ul>
         </div>
         <div>

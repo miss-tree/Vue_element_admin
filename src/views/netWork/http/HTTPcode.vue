@@ -1,12 +1,25 @@
 <template>
     <div>
+        <div class="G_local">
+            <span @click="goAnchor('#request')">请求方式</span>
+            <span @click="Tocontone('#code')">常见状态码</span>
+            <span @click="goAnchor('#localstorage')">缓存机制</span>
+            <span @click="goAnchor('#Cache')">Cache-Control指令</span>
+            <span @click="goAnchor('#respond')">缓存响应指令</span>
+            <span @click="goAnchor('#1st')">首部字段</span>
+            <span @click="goAnchor('#req1s')">请求首部字段</span>
+            <span @click="goAnchor('#reqww')">响应首部字段</span>
+            <span @click="goAnchor('#ssss')">实体首部字段</span>
+            <span @click="goAnchor('#hhxx')">缓存响应指令</span>
+        </div>
+        <back-top/>
         <div>
             <h4>HTTPcode</h4>
             <div class="G_img">
                 <img src="@/assets/netWork/netcp03.jpg">
                 <img src="@/assets/netWork/netcp04.jpg">
             </div>
-            <p>
+            <p >
                  下面是在前端实际开发中常遇的字段，熟悉字段有利于项目的开发，感谢掘金作者
                 <a href="https://juejin.im/post/5e198194e51d451c88361977#heading-13" target='_blank'>
                     蓝布偶
@@ -14,7 +27,7 @@
             </p>
         </div>
         <div>
-            <h5>请求方式</h5>
+            <h5 id="request">请求方式</h5>
             <div class="G_table">
                 <div class="G_table_th">
                     <span class="G_table_title">请求方式</span>
@@ -27,7 +40,7 @@
             </div>    
         </div>
         <div>
-            <h5>常见状态码</h5>
+            <h5 id="code">常见状态码</h5>
             <div class="G_table">
                 <div class="G_table_th">
                     <span class="G_table_title">状 态 码</span>
@@ -40,19 +53,29 @@
             </div> 
         </div>
         <div>
-            <h5>缓存机制</h5>
+            <h5 id="localstorage">缓存机制</h5>
             <img src="@/assets/netWork/netcp05.jpg" alt="">
+            <p>
+                强缓存:在缓存有效期内，客户端直接读取本地资源。强缓存返回的状态码是 200
+            </p>
+            <p>
+                协商缓存：关键在于协商，在使用本地缓存之前，需要先跟服务器做个对比，
+                服务器告知你的资源可用，是最新的，那就可以直接取本地资源，
+                反之，服务器返回最新的资源给客户端，客户端收到后更新本地资源。
+                若本地资源是最新的，那么返回 304 （考点!）
+                若比对后，需要从服务器获取最新资源，那就是正常的 200
+            </p>
         </div>
         <div>
-            <h5>Cache-Control指令</h5>
+            <h5 id="Cache">Cache-Control指令</h5>
             <img src="@/assets/netWork/netcp06.jpg" alt="">
         </div>
         <div>
-            <h5>缓存响应指令</h5>
+            <h5 id="respond">缓存响应指令</h5>
             <img src="@/assets/netWork/netcp07.jpg" alt="">
         </div>
         <div>
-            <h5>首部字段</h5>
+            <h5 id="1st">首部字段</h5>
             <div class="G_table">
                 <div class="G_table_th">
                     <span class="G_table_title">首部字段名</span>
@@ -65,7 +88,7 @@
             </div> 
         </div>
         <div>
-            <h5>请求首部字段</h5>
+            <h5 id="req1s">请求首部字段</h5>
             <div class="G_table">
                 <div class="G_table_th">
                     <span class="G_table_title">首部字段名</span>
@@ -78,7 +101,7 @@
             </div> 
         </div>
         <div>
-            <h5>响应首部字段</h5>
+            <h5 id="reqww">响应首部字段</h5>
             <div class="G_table">
                 <div class="G_table_th">
                     <span class="G_table_title">首部字段名</span>
@@ -91,7 +114,7 @@
             </div> 
         </div>
         <div>
-            <h5>实体首部字段</h5>
+            <h5 id="ssss">实体首部字段</h5>
             <div class="G_table">
                 <div class="G_table_th">
                     <span class="G_table_title">首部字段名</span>
@@ -104,7 +127,7 @@
             </div> 
         </div>
         <div>
-            <h5>缓存响应指令</h5>
+            <h5 id="hhxx">缓存响应指令</h5>
             <img src="@/assets/netWork/netcp08.jpg" alt="">
         </div>
     </div>
@@ -113,6 +136,9 @@
 <script>
 export default {
     name:"HTTPcode",
+    components:{
+        backTop:()=>import('@/components/BackToTop/index')
+    },
     data(){
         return{
             reqList:[
@@ -206,6 +232,18 @@ export default {
                 {title:'Expires',explain:'实体主体过期的日期时间'},
                 {title:'Last-Modified',explain:'资源的最后修改日期时间'},
             ],
+        }
+    },
+    methods: {
+        Tocontone(id){
+            document.querySelector(id).scrollIntoView(true);
+        },
+        goAnchor(selector) {
+            // console.log(typeof selector ,selector)
+            var anchor = this.$el.querySelector(selector) // 参数为要跳转到的元素id
+            // console.log(typeof anchor ,anchor)
+            document.body.scrollTop = anchor.offsetTop; // chrome
+            document.documentElement.scrollTop = anchor.offsetTop; // firefox
         }
     }
 }

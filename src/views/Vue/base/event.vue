@@ -14,6 +14,18 @@
                 alert(message)
             }
         }     
+
+        自定义参数
+        &lt;div id="app"&gt;
+            &lt;button @click="tm($event,123)"&gt;ddddd&lt;/button&gt;
+        &lt;/div&gt;
+
+        methods:{
+            tm:function(e,value){
+                console.log(e);
+                console.log(value);
+            }
+        }
             </pre>
         </div>
         <div>

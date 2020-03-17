@@ -44,6 +44,37 @@
    
             </pre>
         </div>
+        <div>
+            <h5>增删class</h5>
+            <pre v-pre>
+        // 注册一个全局自定义指令 v-toggle
+        Vue.directive('toggleClass', {
+            bind: function(el, binding) {
+                el.onclick = function(e) {
+                    // e.preventDefault();
+                        e.stopPropagation();
+                    if (el.className.indexOf(binding.value.class) v-pre &lt; 0) {
+                        el.className = el.className + ' ' + binding.value.class
+                    } else {
+                        el.className = el.className.replace(' ' + binding.value.class, '');
+                    }
+                }
+                if(binding.value.close){
+                    var doc=document;
+                    if (doc.addEventListener) { //所有主流浏览器，除了 IE 8 及更早 IE版本
+                        doc.addEventListener("click", function(){
+                            el.className = el.className.replace(' ' + binding.value.class, '');
+                        });
+                    } else if (doc.attachEvent) { // IE 8 及更早 IE 版本
+                        doc.attachEvent("onclick", function(){
+                            el.className = el.className.replace(' ' + binding.value.class, '');
+                        });
+                    }
+                }
+            }
+        })        
+            </pre>
+        </div>
     </div>
 </template>
 

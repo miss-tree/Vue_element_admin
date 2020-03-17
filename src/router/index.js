@@ -34,7 +34,6 @@ export const constantRoutes = [
 ]
 /** asyncRoutes  需要权限的路由*/
 export const asyncRoutes = [
-  // ...vueRouter,
   vueRouter,
   EsRouter,
   weChatRouter,
