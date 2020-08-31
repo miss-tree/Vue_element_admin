@@ -11,7 +11,7 @@
             </p>
             <p>
                 $listeners：包含了父作用域中的 (不含 .native 修饰器的) v-on 事件监听器。
-                它可以通过 v-on="$listeners" 传入内部组件
+                它可以通过 v-on="$listeners" 传入内部组件,跟$attrs一样，需要在组件上一个个传递下去。
             </p>
             <pre>
         &lt;template&gt;
@@ -22,6 +22,7 @@
                 :coo="coo"
                 :doo="doo"
                 title="前端工匠"
+                @passEvent='handle'
                 &gt;&lt;/child-com1&gt;
             &lt;/div&gt;
         &lt;/template&gt;
@@ -33,13 +34,18 @@
             coo: "CSS",
             doo: "Vue"
             };
+        },
+        methods:{
+            handle(){
+                console.log('父组件方法')
+            }
         }
         
         
         // childCom1.vue
         &lt;template class="border"&gt;
             &lt;div&gt;
-                &lt;p&gt;foo: {{ foo }}&lt;/p&gt;
+                &lt;p&gt;foo: { { foo } }&lt;/p&gt;
                 &lt;child-com2 v-bind="$attrs"&gt;&lt;/child-com2&gt;
             &lt;/div&gt;
         &lt;/template&gt;
@@ -50,11 +56,12 @@
             console.log(this.$attrs); // { "boo": "Html", "coo": "CSS", "doo": "Vue", "title": "前端工匠" }
         } 
 
+
         // childCom2.vue
         &lt;template&gt;
             &lt;div class="border"&gt;
-                &lt;p&gt;boo: {{ boo }}&lt;/p&gt;
-                &lt;child-com3 v-bind="$attrs"&gt;&lt;/child-com3&gt;
+                &lt;p&gt;boo: { { boo } }&lt;/p&gt;
+                &lt;child-com3 v-bind="$attrs"  v-on="$listeners"&gt;&lt;/child-com3&gt;
             &lt;/div&gt;
         &lt;/template&gt;
 
@@ -62,10 +69,11 @@
             boo: String
         },
 
+
         // childCom3.vue
         &lt;template&gt;
             &lt;div class="border"&gt;
-                &lt;p&gt;childCom3: {{ $attrs }}&lt;/p&gt;
+                &lt;p&gt; childCom3: { { $attrs } }&lt;/p&gt;
             &lt;/div&gt;
         &lt;/template&gt;
         props: {
@@ -74,6 +82,7 @@
         },
         created() {
             console.log(this.$attrs); // { "doo": "Vue"}
+            console.log(this.$listeners.passEvent()); // 父组件方法
         }        
             </pre>
             <div>
@@ -81,5 +90,13 @@
                 $attrs获取的数据是除props以外的数据传到子组件
             </div>
         </div>
+        <last  v-on="$listeners"/>
   </div>
 </template>
+<script>
+export default {
+    components:{
+        last:()=>import('./last')
+    }
+}
+</script>

@@ -18,10 +18,40 @@ const netWorkRouter =
             meta: { title: '关于Fetch'}
           },
           {
+            path: 'DevTools',
+            component: () => import('@/views/netWork/linkTCP'),
+            name: 'DevTools',
+            alwaysShow : true ,
+            meta: { title: 'DevTools'},
+            children:[
+              {
+                path: 'IntersectionObserver',
+                component: () => import('@/views/netWork/jsApi/IntersectionObserver'),
+                name: 'Chrome DevTools',
+                meta: { title: 'IntersectionObserver'}
+              },
+            ]
+          },
+          {
             path: 'linkTCP',
             component: () => import('@/views/netWork/linkTCP'),
             name: 'linkTCP',
             meta: { title: '关于TCP'}
+          },
+          {
+            path: 'linkApi',
+            component: () => import('@/views/netWork/index'),
+            name: 'linkApi',
+            meta: { title: '进阶API'},
+            children:[
+              {
+                path: 'IntersectionObserver',
+                component: () => import('@/views/netWork/jsApi/IntersectionObserver'),
+                //css/gridLayout 
+                name: 'IntersectionObserver',
+                meta: { title: 'IntersectionObserver'}
+              },
+            ]
           },
           {
             path:"cascading",
@@ -29,7 +59,7 @@ const netWorkRouter =
             redirect: 'noRedirect',
             name:"Cascading",
             alwaysShow : true ,
-            meta:{title: '关于css进阶',},
+            meta:{title: '关于css进阶'},
             children:[
               {
                 path: 'gridlayout',
@@ -52,6 +82,50 @@ const netWorkRouter =
                 component: () => import('@/views/netWork/advance/execution'),
                 name: 'execution',
                 meta: { title: 'js执行机制'}
+              },
+              {
+                path: 'tool',
+                component: () => import('@/views/netWork/index'),
+                name: 'tool',
+                meta: { title: '工具函数'},
+                children:[
+                  {
+                    path: 'tooloften',
+                    component: () => import('@/views/netWork/advance/tooloften'),
+                    name: 'tooloften',
+                    meta: { title: '工具函数一'}
+                  },
+                  {
+                    path: 'toolusually',
+                    component: () => import('@/views/netWork/advance/toolusually'),
+                    name: 'toolusually',
+                    meta: { title: '工具函数二'}
+                  },
+                  {
+                    path: 'browsertool',
+                    component: () => import('@/views/netWork/advance/browsertool'),
+                    name: 'browsertool',
+                    meta: { title: '浏览器工具函数'}
+                  },
+                  {
+                    path: 'browserstorage',
+                    component: () => import('@/views/netWork/advance/browserstorage'),
+                    name: 'browserstorage',
+                    meta: { title: 'storage工具函数'}
+                  },
+                  {
+                    path: 'tooldate',
+                    component: () => import('@/views/netWork/advance/tooldate'),
+                    name: 'tooldate',
+                    meta: { title: 'Date工具函数'}
+                  },
+                  {
+                    path: 'toolfunc',
+                    component: () => import('@/views/netWork/advance/toolfunc'),
+                    name: 'toolfunc',
+                    meta: { title: '工具函数三'}
+                  },
+                ]
               },
               {
                 path: 'ergodic',

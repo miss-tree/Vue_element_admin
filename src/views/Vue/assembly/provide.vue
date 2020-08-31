@@ -39,24 +39,49 @@
                 theme: this         //方法一：提供祖先组件的实例
             };
         },   
-        方法二:使用2.6最新API Vue.observable 优化响应式 provide
+        方法二:使用2.6最新API Vue.observable 观察方式优化响应式 provide
         provide() {
             this.theme = Vue.observable({
                 color: "blue"
             });
             return {
-                theme: this.theme
+                theme: this.theme,
+                customForm: this
             };
         },
+        methods:{
+            handle(val){
+                this.dataVal=val
+            }
+        }
 
         // F 组件
         inject: {
             theme: {
                 //函数式组件取值不一样
                 default: () => ({})
+            },
+            customForm:{
+                default: () => ({})
             }
-        }       
+        },  
+        mounted(){
+            this.customForm.handle(fDataVal)//参数传个值改变组件A的data值
+        }
               </pre>
+              <p>
+                  在调用组件A的方法最好是通过将A的this传递到后代中，这样就比较方便调用组件A的方法。
+                  相当于在后代中直接发布订阅的方式调用组件A的方法，没有隔代的限制，不需要一个个传递事件。
+                  若在后代要响应改变值还是通过provide()里传递A的方法，在方法内带参数，后代将参数带到方法中，
+                  在A的方法里改变this.data里的值。
+              </p>
+              <p>
+                  优势：
+              </p>
+              <ul>
+                  <li>对比$attrs|$listent方法不需要一个个传递，父组件提供provide(),后代组件inject都能接收到，而且不会有缺失</li>
+                  <li>对比全局的观察方式Vue.prototype.Bus，能传递更多的方法和值</li>
+              </ul>   
           </div>
       </div>
   </div>

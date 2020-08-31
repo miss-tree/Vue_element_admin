@@ -53,9 +53,20 @@
             &lt;template v-slot:footer&gt;
                 &lt;p&gt;Here's some contact info&lt;/p&gt;
             &lt;/template&gt;
-        &lt;/base-layout&gt;   
+        &lt;/base-layout&gt;  
+
         父组件调用中没定义的就是默认插槽,具名插槽跟 v-on 和 v-bind 一样，都有缩写。
-        v-slot:header  =>  #header
+        <span class="red">v-slot:header  =>  #header</span>
+        &lt;base-layout&gt;
+            &lt;template #header&gt;
+                &lt;h1&gt;Here might be a page title&lt;/h1&gt;
+            &lt;/template&gt;
+            &lt;p&gt;A paragraph for the main content.&lt;/p&gt;
+            &lt;p&gt;And another one.&lt;/p&gt;
+            &lt;template #footer&gt;
+                &lt;p&gt;Here's some contact info&lt;/p&gt;
+            &lt;/template&gt;
+        &lt;/base-layout&gt;  
             </pre>
         </div>
         <div>

@@ -54,6 +54,8 @@
         </div>
         <div>
             <h5 id="localstorage">缓存机制</h5>
+            <h6>图解 HTTP 缓存</h6>
+            <img src="../img/Cache-Control.jpg" alt="" style="width:1100px;height:700px;">
             <img src="@/assets/netWork/netcp05.jpg" alt="">
             <p>
                 强缓存:在缓存有效期内，客户端直接读取本地资源。强缓存返回的状态码是 200
@@ -129,6 +131,12 @@
         <div>
             <h5 id="hhxx">缓存响应指令</h5>
             <img src="@/assets/netWork/netcp08.jpg" alt="">
+        </div>
+        <div>
+            <dialog ref="dialog">
+                <h2>Dialog Title</h2>
+                <p>Dialog content and other stuff will go here</p>
+            </dialog>
         </div>
     </div>
 </template>
@@ -235,6 +243,10 @@ export default {
         }
     },
     methods: {
+        openDialog(){
+            console.log('dialog');
+            this.$refs.dialog.show()
+        },
         Tocontone(id){
             document.querySelector(id).scrollIntoView(true);
         },

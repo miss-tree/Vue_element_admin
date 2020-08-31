@@ -8,6 +8,7 @@ import vueRouter from './modules/vueRouter'
 import EsRouter from './modules/Es6Router'
 import weChatRouter from './modules/Wechat'
 import netWorkRouter from './modules/network'
+import Ol from './modules/Ol'
 
 import elementRouter from './modules/elementAdmin'
 /**
@@ -38,6 +39,7 @@ export const asyncRoutes = [
   EsRouter,
   weChatRouter,
   netWorkRouter,
+  Ol,
   elementRouter,
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }

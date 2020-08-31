@@ -28,6 +28,10 @@ Vue.use(Element, {
   size: Cookies.get('size') || 'medium' // set element-ui default size
 })
 
+// highlight.js代码高亮插件
+// import Highlight from './utils/highlight'; // from 路径是highlight.js的路径，纯属自定义
+// Vue.use(Highlight);
+
 //过滤器
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])

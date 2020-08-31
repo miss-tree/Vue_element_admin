@@ -18,6 +18,7 @@ export default {
     props:{
         list:{
             type:Array,
+            required:true,
             default:[{name:'请求方式',id:'request'}]
         }
     },
@@ -31,4 +32,11 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+.G_local>span{
+    cursor: pointer;
+}
+</style>
+
 

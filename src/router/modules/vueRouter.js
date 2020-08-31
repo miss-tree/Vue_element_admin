@@ -195,6 +195,21 @@ const vueRouter =
             ]
           },
           {
+            path: 'jsx',
+            component: () => import('@/views/Vue/base/index'),
+            name: 'VirtualDOM',
+            meta: { title: 'jsx'},
+            alwaysShow : true ,
+            children:[ 
+              {
+                path: 'knowJsx',
+                component: () => import('@/views/Vue/jsx/knowJsx'),
+                name: 'knowJsx',
+                meta: { title: '认识jsx',}
+              }
+            ]
+          },
+          {
             path: 'plugins',
             component: () => import('@/views/Vue/plugins'),
             name: 'plugins',
@@ -213,6 +228,12 @@ const vueRouter =
                 component: () => import('@/views/Vue/advance/direct'),
                 name: 'direct',
                 meta: { title: 'vue指令',}
+              },
+              {
+                path: 'imglazy',
+                component: () => import('@/views/Vue/advance/imglazy'),
+                name: 'v-imgLazy',
+                meta: { title: '图片懒加载',}
               },
               {
                 path: 'extend',
@@ -295,6 +316,12 @@ const vueRouter =
                 component: () => import('@/views/Vue/webpack/jquery'),
                 name: 'jquery',
                 meta: { title: 'jquery插件',}
+              },
+              {
+                path: 'publicplugin',
+                component: () => import('@/views/Vue/webpack/publicplugin'),
+                name: 'publicplugin',
+                meta: { title: '其他常用配置',}
               }
             ]
           },

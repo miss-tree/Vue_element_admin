@@ -4,7 +4,12 @@
 
     <!-- <panel-group @handleSetLineChartData="handleSetLineChartData" /> -->
     <div>
-      <div>项目目录(未完，持续更新)</div>
+      <div>项目目录(未完，持续更新)
+        <a href="https://github.com/miss-tree/Vue_element_admin" target="_blank" rel="noreferrer">
+          <svg-icon icon-class="guide" />
+          github地址
+        </a>
+      </div>
       <img src="@/assets/Catalog.jpg" style="width:100%"/>
     </div>
     <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
