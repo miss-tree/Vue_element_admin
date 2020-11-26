@@ -48,6 +48,13 @@
                 this.Text=newValue;
             }
         } 
+        
+        事件传多个值
+        this.$emit('upEvent',val1,val2,val3...)
+        
+        getEventMsg(msg){
+          console.log(msg[0],msg[1],msg[2],msg[3]...)
+        }
             </pre>
             <div>
                 其中子组件接收props按照vue风格指南是有要求的,大多数情况指定类型和默认值便可

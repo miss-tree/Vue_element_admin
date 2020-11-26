@@ -18,17 +18,38 @@ const netWorkRouter =
             meta: { title: '关于Fetch'}
           },
           {
+            path: 'aboutAxios',
+            component: () => import('@/views/netWork/index'),
+            name: 'aboutAxios',
+            meta: { title: 'axios'}
+          },
+          {
+            path: 'validate',
+            component: () => import('@/views/netWork/index'),
+            name: 'validate',
+            meta: { title: 'validator'},
+            alwaysShow : true ,
+            children:[
+              {
+                path: 'el-validate',
+                component: () => import('@/views/netWork/validate/validate'),
+                name: 'el-validate',
+                meta: { title: 'element-表单验证'}
+              },
+            ]
+          },
+          {
             path: 'DevTools',
-            component: () => import('@/views/netWork/linkTCP'),
+            component: () => import('@/views/netWork/index'),
             name: 'DevTools',
             alwaysShow : true ,
             meta: { title: 'DevTools'},
             children:[
               {
-                path: 'IntersectionObserver',
-                component: () => import('@/views/netWork/jsApi/IntersectionObserver'),
-                name: 'Chrome DevTools',
-                meta: { title: 'IntersectionObserver'}
+                path: 'Command',
+                component: () => import('@/views/netWork/devtool/Command'),
+                name: 'Command',
+                meta: { title: 'Command'}
               },
             ]
           },
@@ -47,7 +68,6 @@ const netWorkRouter =
               {
                 path: 'IntersectionObserver',
                 component: () => import('@/views/netWork/jsApi/IntersectionObserver'),
-                //css/gridLayout 
                 name: 'IntersectionObserver',
                 meta: { title: 'IntersectionObserver'}
               },
@@ -176,10 +196,20 @@ const netWorkRouter =
             ]
           },
           {
-            path: 'knowlage',
-            component: () => import('@/views/netWork/knowlage'),
-            name: 'knowlage',
-            meta: { title: '面试常见知识点'}
+            path:"webpack",
+            component: () => import('@/views/netWork/index'),
+            redirect: 'noRedirect',
+            name:"webpack",
+            alwaysShow : true ,
+            meta:{title: 'Npm|Yarn',},
+            children:[
+              {
+                path: 'npm',
+                component: () => import('@/views/netWork/npmYarn/npm'),
+                name: 'npm',
+                meta: { title: 'npm',}
+              },
+            ]
           },
           {
             path:"webpack",
@@ -234,6 +264,12 @@ const netWorkRouter =
                 meta: { title: 'mysql命令',}
               },
             ]
+          },
+          {
+            path: 'knowlage',
+            component: () => import('@/views/netWork/knowlage'),
+            name: 'knowlage',
+            meta: { title: '面试常见知识点'}
           },
         ]
     }

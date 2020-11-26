@@ -11,39 +11,6 @@ const otherRouter = [{
       noCache: true
     }
   },
-  {
-    path: 'tab',
-    component: () => import('@/views/tab/index'),
-    name: 'Tab',
-    meta: {
-      title: 'Tab',
-      icon: 'tab'
-    }
-  },
-
-  {
-    path: 'zip',
-    component: () => import('@/views/zip/index'),
-    name: 'ExportZip',
-    meta: {
-      title: 'Export Zip'
-    }
-  },
-
-  {
-    path: '/pdf',
-    component: () => import('@/views/pdf/index'),
-    name: 'PDF',
-    meta: {
-      title: 'PDF',
-      icon: 'pdf'
-    }
-  },
-  {
-    path: '/pdf/download',
-    component: () => import('@/views/pdf/download'),
-    hidden: true
-  },
 
   {
     path: 'theme',

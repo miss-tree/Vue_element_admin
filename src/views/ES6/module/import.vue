@@ -22,6 +22,26 @@
         // ES6 模块不同的是，静态加载完毕之后，每执行到模块中的方法，
             就去模块内调用（外部的变量总是与模块进行绑定的），而且值不会被缓存。
         console.log(counter); // 4
+
+
+
+        高级用法：请求数据
+        ./content.js
+            let title='hello world'
+            const msg='hi,boy'
+            const data = {  title,  content  }
+
+            export default data
+
+        import('./content.js').then(data => {
+            const { title } = data.default
+        })
+
+        在效果上和下面代码类似，请求到数据然后引用
+        require(["index","jquery-2.1.0","./a"],function(){
+            alert("加载完成")
+        })
+
             </pre>
             <span>
                 ES6 模块与 CommonJS 模块的区别：

@@ -8,6 +8,7 @@ import vueRouter from './modules/vueRouter'
 import EsRouter from './modules/Es6Router'
 import weChatRouter from './modules/Wechat'
 import netWorkRouter from './modules/network'
+import D3 from './modules/graph'
 import Ol from './modules/Ol'
 
 import elementRouter from './modules/elementAdmin'
@@ -39,6 +40,7 @@ export const asyncRoutes = [
   EsRouter,
   weChatRouter,
   netWorkRouter,
+  D3,
   Ol,
   elementRouter,
   // 404 page must be placed at the end !!!

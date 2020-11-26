@@ -33,10 +33,47 @@
             d.doSomething();
         });     
 
+
         require.resolve(id)
         使用模块系统内部的路径解析机制来解析并返回模块路径。该函数不会加载模块，只返回解析后的绝对路径。
         console.log(require.resolve('./b'));
         // ==> http://example.com/path/to/b.js
+
+        export
+        define(function(require, exports) {
+            // 对外提供 foo 属性
+            exports.foo = 'bar';
+
+            // 对外提供 doSomething 方法
+            exports.doSomething = function() {};
+        });
+        在暴露多个方法或对象时写法：
+        define(function(require, exports, module) {
+            module.exports = {
+                foo: 'bar',
+                doSomething: function() {}
+            };
+        });
+        注意：对 module.exports 的赋值需要同步执行，不能放在回调函数里。
+        define(function(require, exports, module) {
+            // 错误用法
+            setTimeout(function() {
+                module.exports = { a: "hello" };
+            }, 0);
+        });
+
+
+        在路由模块化使用
+        //所有模块一起加载
+        const routerList = []  // 路由数组 - 存放所有路由
+        const importAll=(routerArr)=>{
+            // 该函数用于将所有分区路由中的路由添加到路由数组
+            routerArr.keys().forEach( key => {
+                Array.prototype.push.apply(routerList,routerArr(key).default)
+            })
+        }
+        importAll(require.context('./',false,/\.routes\.js/))//将所有 .routes.js文件名结尾的路由引进
+
             </pre>
         </div>
         <div>

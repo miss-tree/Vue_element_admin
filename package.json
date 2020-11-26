@@ -28,12 +28,11 @@
   },
   "keywords": [
     "vue",
-    "admin",
-    "dashboard",
+    "d3",
+    "ES6",
+    "openLayers",
     "element-ui",
-    "boilerplate",
-    "admin-template",
-    "management-system"
+    "admin-template"
   ],
   "dependencies": {
     "axios": "0.19.2",
@@ -41,6 +40,7 @@
     "codemirror": "5.52.0",
     "core-js": "^3.6.4",
     "cors": "^2.8.5",
+    "d3": "^5.15.0",
     "driver.js": "0.9.8",
     "dropzone": "5.7.0",
     "echarts": "4.6.0",

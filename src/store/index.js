@@ -4,7 +4,7 @@ import getters from './getters'
 
 Vue.use(Vuex)
 
-// https://webpack.js.org/guides/dependency-management/#requirecontext
+// 获取./modules下匹配的所有.js文件
 const modulesFiles = require.context('./modules', true, /\.js$/)
 
 // you do not need `import app from './modules/app'`

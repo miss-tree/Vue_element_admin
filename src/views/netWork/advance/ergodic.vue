@@ -100,8 +100,29 @@
             <p>
                 在同个作用域内使用async 与 await方法是执行等待，下面的代码不执行。
                 若使用 setTimeOut()、promise等异步方法，虽然异步等待，
-                但是后面的代码还是会执行。
+                但是后面的代码还是会执行。若后面的代码执行顺序不影响可以使用另一种方法：
             </p>
+            <pre>
+        function sleep(delay){
+            return function(){
+                return new Promise(function(resolve, reject){
+                    setTimeout(resolve, delay);
+                });
+            }
+        }
+ 
+        //延时执行
+        var promise = new Promise(function(resolve){
+          console.log('1 do something');
+          resolve();
+        }).then(sleep(2000)).then(function(){
+          console.log('2 after sleep 2000');
+        }).then(sleep(2000)).then(function(){
+          console.log('3 after sleep 2000');
+        }).then(sleep(2000)).then(function(){
+          console.log('4 after sleep 2000');
+        })        
+            </pre>
             <pre>
         const fruitbasket = ["apple", "grape", "pear","bananer","orange"];
         const  ms = (ms)=>{ return new Promise(resolve => setTimeout(resolve, ms))}

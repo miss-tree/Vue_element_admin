@@ -9,7 +9,7 @@ module.exports = {
     node: true,
     es6: true,
   },
-  extends: ['plugin:vue/recommended', 'eslint:recommended'],
+  extends: ['plugin:vue/recommended', 'eslint:recommended','@vue/standard'],
 
   // add your custom rules here
   //it is base on https://github.com/vuejs/eslint-config-vue
@@ -96,7 +96,12 @@ module.exports = {
     'no-implied-eval': 2,
     'no-inner-declarations': [2, 'functions'],
     'no-invalid-regexp': 2,
-    'no-irregular-whitespace': 2,
+    'no-irregular-whitespace': [2,{
+      'skipString':true,
+      'skipComments':false,
+      'skipRegExps':true,
+      'skipTemplates':true,
+    }],
     'no-iterator': 2,
     'no-label-var': 2,
     'no-labels': [2, {

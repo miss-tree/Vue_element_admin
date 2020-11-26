@@ -37,6 +37,12 @@
         &lt;!-- 提交事件不再重载页面 --&gt;
         &lt;form v-on:submit.prevent="onSubmit"&gt;&lt;/form&gt;
 
+        &lt;!-- 转为数字类型 --&gt;
+        &lt;input v-model.number="age" type="number"&gt;
+
+        &lt;!-- 自动过滤用户输入的首尾空白字符 --&gt;
+        &lt;input v-model.trim="msg"&gt;
+
         &lt;!-- 修饰符可以串联 --&gt;
         &lt;a v-on:click.stop.prevent="doThat"&gt;&lt;/a&gt;
 

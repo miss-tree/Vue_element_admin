@@ -41,7 +41,7 @@ const vueRouter =
                 path: 'form',
                 component: () => import('@/views/Vue/base/form'),
                 name: 'form',
-                meta: { title: '数据绑定',}
+                meta: { title: '数据绑定|重置',}
               }, 
               {
                 path: 'ifrender',
@@ -107,10 +107,10 @@ const vueRouter =
                 meta: { title: '动态组件',}
               }, 
               {
-                path: 'split',
-                component: () => import('@/views/Vue/webpack/split'),
-                name: 'split',
-                meta: { title: '组件传值',}
+                path: 'npm',
+                component: () => import('@/views/Vue/assembly/npmcomponent'),
+                name: 'npm',
+                meta: { title: 'npm组件',}
               },
             ]
           },

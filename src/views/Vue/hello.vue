@@ -1,5 +1,11 @@
 <template>
-    <div>
+    <div class="relative">
+        <div class="topRight">
+            <a href="https://github.com/haizlin/fe-interview/blob/master/lib/Vue.md"
+                target="_new">
+                vue面试题
+            </a>
+        </div>
         <div>
             <h5>什么是 mvvm？</h5>
             <p>
@@ -89,6 +95,50 @@
            </ul>
         </div>
         <div>
+            <h5>vue为什么要求组件模板只能有一个根元素？</h5>
+            <pre>
+        当我们实例化Vue的时候，填写一个el选项，来指定我们的SPA入口：
+        let vm = new Vue({
+            el:'#app'
+        })     
+        或main.js
+        new Vue({
+            el: '#app',
+            router,
+            store,
+            render: h => h(App)
+        })   
+
+        同时我们也会在body里面新增一个id为app的div
+        &lt;div id='app'&gt;&lt;/div&gt;
+
+        如果同时设置了多个入口，那么vue就不知道哪一个才是这个‘类’。
+            </pre>
+           <div>
+               为什么template下也必须有且只能有一个div呢？
+           </div>
+           <div>template这个标签，这个标签是HTML5出来的新标签，它有三个特性：</div>
+           <ul>
+               <li>隐藏性：该标签不会显示在页面的任何地方，即便里面有多少内容，它永远都是隐藏的状态；</li>
+               <li>任意性：该标签可以写在页面的任何地方，甚至是head、body、sciprt标签内；</li>
+               <li>无效性：该标签里的任何HTML内容都是无效的，不会起任何作用；</li>
+           </ul>
+           <p>
+               .vue的单文件组件。其实本质上，一个单文件组件，本质上（我认为）会被各种各样的loader处理成为.js文件
+               （因为当你import一个单文件组件并打印出来的时候，是一个vue实例），通过template的任意性我们知道，
+               template包裹的HTML可以写在任何地方，那么对于一个.vue来讲，
+               这个template里面的内容就是会被vue处理为虚拟dom并渲染的内容，导致结果又回到了开始 ：
+               既然一个.vue单文件组件是一个vue实例，那么这个实例的入口在哪里？
+               如果在template下有多个div，那么该如何指定这个vue实例的根入口？
+                为了让组件能够正常的生成一个vue实例，那么这个div会被自然的处理成程序的入口。
+                通过这个‘根节点’，来递归遍历整个vue‘树’下的所有节点，并处理为vdom，
+                最后再渲染成真正的HTML，插入在正确的位置
+                那么这个入口，就是这个树的‘根’，各个子元素，子组件，就是这个树的‘枝叶’，
+                而自然而然地，这棵‘树’，就是指一个vue实例了。
+           </p>
+
+        </div>
+        <div>
             <h5>为什么Vue要采取异步渲染？</h5>
            <p>
                因为如果不采用异步渲染，那么每次更新数据都会进行重新渲染，
@@ -127,4 +177,14 @@ export default {
     name:"hello",
 }
 </script>
+
+<style lang="scss" scoped>
+    .topRight{
+        position: absolute;
+        top:20px;
+        right: 35px;
+        font-size: 15px;
+        color: #ff4800c2;
+    }
+</style>
 
