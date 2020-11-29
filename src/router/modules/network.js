@@ -87,6 +87,12 @@ const netWorkRouter =
                 name: 'gridLayout',
                 meta: { title: 'Grid网格布局'}
               },
+              {
+                path: 'initip',
+                component: () => import('@/views/netWork/css/initip'),
+                name: 'initip',
+                meta: { title: '自定义-tip'}
+              },
             ]
           },
           {
@@ -160,6 +166,12 @@ const netWorkRouter =
                 meta: { title: 'js技巧'}
               },
               {
+                path: 'bindcall',
+                component: () => import('@/views/netWork/advance/bindcall'),
+                name: 'bindcall',
+                meta: { title: 'bind/call/apply'}
+              },
+              {
                 path: 'blob',
                 component: () => import('@/views/netWork/advance/blob'),
                 name: 'blob',
@@ -196,10 +208,10 @@ const netWorkRouter =
             ]
           },
           {
-            path:"webpack",
+            path:"npm",
             component: () => import('@/views/netWork/index'),
             redirect: 'noRedirect',
-            name:"webpack",
+            name:"npm",
             alwaysShow : true ,
             meta:{title: 'Npm|Yarn',},
             children:[
@@ -207,8 +219,14 @@ const netWorkRouter =
                 path: 'npm',
                 component: () => import('@/views/netWork/npmYarn/npm'),
                 name: 'npm',
-                meta: { title: 'npm',}
+                meta: { title: 'npm'}
               },
+              {
+                path: 'plugiNpm',
+                component: () => import('@/views/netWork/npmYarn/plugint'),
+                name: 'plugiNpm',
+                meta: { title: '插件'}
+              }
             ]
           },
           {

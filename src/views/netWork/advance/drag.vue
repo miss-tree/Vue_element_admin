@@ -51,4 +51,8 @@ export default {
     }
 }
 </script>
-
+<style lang="scss" scoped>
+    .G_table >div{
+        padding: 8px 0;
+    }
+</style>

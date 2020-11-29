@@ -119,9 +119,9 @@
           type: 'tree',
           data: [listData],
           top: '1%',
-          left: '7%',
+          left: '10%',
           bottom: '1%',
-          right: '20%',
+          right: '10%',
           roam: true,
           symbolSize: 7,
           label: {
