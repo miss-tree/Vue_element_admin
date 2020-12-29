@@ -146,6 +146,12 @@
         }]
       }
       myChart.setOption(option);
+      let timer = setInterval(() => { //有点消耗性能
+        myChart.resize()
+      }, 1500)
+      this.$once('hook:beforeDestroy', () => {
+        clearInterval(timer)
+      })
       // });
     },
     methods: {
@@ -153,6 +159,9 @@
         this.lineChartData = lineChartData[type]
       }
     }
+    // beforeDestroy() {
+    //   clearInterval(timer)
+    // }
   }
 
 </script>

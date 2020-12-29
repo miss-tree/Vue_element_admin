@@ -11,6 +11,7 @@
                 <li><a href="https://github.com/santiblanko/vue-instant" target="_blank">搜索检索 vue-instant</a></li>
                 <li><a href="https://www.npmjs.com/package/vue-highcharts" target="_blank">vue-highcharts</a></li>
                 <li><a href="https://www.npmjs.com/package/vue-video" target="_blank">vue-video</a></li>
+                <li><a href="https://github.com/mwilliamson/mammoth.js" target="_blank">Mammoth.js(前端word文档转HTML)</a></li>
                 <li><a href="https://www.npmjs.com/package/vue-cropper" target="_blank">裁剪 vue-cropper</a></li>
                 <li><a href="https://juejin.im/post/6844903955915341831" target="_blank">裁剪cropper.js示例</a></li>
                 <li><a href="https://github.com/lavas-project/vue-skeleton-webpack-plugin" target="_blank">骨架屏vue-skeleton-webpack-plugin</a></li>

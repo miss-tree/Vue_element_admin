@@ -32,3 +32,5 @@ yarn.lock
 /public
 .xmind
 .psd
+graphAll.js
+.gitignore

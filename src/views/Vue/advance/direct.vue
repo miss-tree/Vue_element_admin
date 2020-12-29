@@ -1,11 +1,53 @@
 <template>
 <div>
+    <location :list='list'/>
     <div>
-        <location :list='list'/>
-        <h5 id="direct">权限指令</h5>
+        <h5 id="qarams" v-debounce="debounceClick">参数</h5>
+        <div>
+        钩子函数：
+        </div>
         <pre>
+    Vue.directive('指令名称',{ 
+        bind(){ },
+        inserted(){},
+        update(){},
+        componentUpdated(){},
+        unbind(){}
+    })        
+        </pre>
+        <ul>
+            <li>bind : 只调用一次 , 指令第一次绑定元素时调用 , 在这里可以进行一次性的初始化设置 ;</li>
+            <li>inserted : 被绑定元素插入父节点时调用 , 不一定渲染完成 , html 已经创建好了</li>
+            <li>update : 所在组件的 VNode 更新时调用</li>
+            <li>componentUpdated : 指令所在的组件的 VNode 全部更新完成后</li>
+            <li>unbind : 指令与元素解绑时调用</li>
+        </ul>
+        <div>钩子函数参数</div>
+        <pre>
+    Vue.directive('指令名称',{ 
+        bind(el,binding){
+
+        },
+        ...
+    })        
+        </pre>
+        <ul>
+            <li>el : 指令所绑定的元素 , 可以直接操作 DOM</li>
+            <li>binding : 指令相关的配置对象
+                <ul>
+                    <li>modifiers : 一个包含修饰符的对象 示例 v-drag.limit</li>
+                    <li>name : 指令名 , 不包含前缀</li>
+                    <li>value : 指令绑定的值 v-drag="true"</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h5 id="direct">权限指令</h5>
+        <pre v-pre>
     // 全局指令 定义时不需要 v-  调用时要加上 v- 前缀    
-    import store from '@/store'        
+    import store from '@/store'  
+
     Vue.directive('permission',{
         inserted(el, binding, vnode) {
             const { value } = binding
@@ -40,30 +82,9 @@
     &lt;/template&gt;
     // 无需再通过value去判断，直接通过v-permission的值进行判断即可
         </pre>
-        <div>
-            钩子函数
-        </div>
-        <ul>
-            <li>bind : 只调用一次 , 指令第一次绑定元素时调用 , 在这里可以进行一次性的初始化设置 ;</li>
-            <li>inserted : 被绑定元素插入父节点时调用 , 不一定渲染完成 , html 已经创建好了</li>
-            <li>update : 所在组件的 VNode 更新时调用</li>
-            <li>componentUpdated : 指令所在的组件的 VNode 全部更新完成后</li>
-            <li>unbind : 指令与元素解绑时调用</li>
-        </ul>
     </div>
     <div>
         <h5 id="lifetype">拖拽指令</h5>
-        <div>钩子函数参数</div>
-        <ul>
-            <li>el : 指令所绑定的元素 , 可以直接操作 DOM</li>
-            <li>binding : 指令相关的配置对象
-                <ul>
-                    <li>modifiers : 一个包含修饰符的对象 示例 v-drag.limit</li>
-                    <li>name : 指令名 , 不包含前缀</li>
-                    <li>value : 指令绑定的值 v-drag="true"</li>
-                </ul>
-            </li>
-        </ul>
         <pre>
             // 拖拽方块案例
         Vue.directive('drag', {
@@ -135,22 +156,36 @@
     })        
         </pre>
     </div>
+    <directPage />
 </div>
 </template>
 
 <script>
+import directPage from './components/directPage'
 export default {
     name:"direct",
     components:{
-        location:()=>import('@/components/location/index')
+        location:()=>import('@/components/location/index'),
+        directPage,
     },
     data(){
         return {
             list:[
+                {name:'参数',id:'qarams'},
                 {name:'权限指令',id:'direct'},
                 {name:'拖拽指令',id:'lifetype'},
                 {name:'增删class',id:'addClass'},
+                {name:'v-copy',id:'copy'},
+                {name:'v-debounce',id:'debounce'},
+                {name:'加水印',id:'waterMarker'},
+                {name:'懒加载',id:'LazyLoad'},
+                {name:'长按',id:'longpress'},
             ]
+        }
+    },
+    methods:{
+        debounceClick () {
+            console.log('只触发一次')
         }
     }
 }
