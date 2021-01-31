@@ -52,6 +52,7 @@
     "jszip": "3.2.2",
     "normalize.css": "8.0.1",
     "nprogress": "0.2.0",
+    "ol": "^6.3.1",
     "path-to-regexp": "6.1.0",
     "screenfull": "5.0.2",
     "showdown": "1.9.1",

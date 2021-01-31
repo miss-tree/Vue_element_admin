@@ -13,33 +13,37 @@ const netWorkRouter = {
       path: 'aboutFetch',
       component: () => import('@/views/netWork/aboutFetch'),
       name: 'aboutFetch',
-      meta: {
-        title: '关于Fetch'
-      }
+      meta: {title: '关于Fetch'}
     },
     {
       path: 'aboutAxios',
-      component: () => import('@/views/netWork/axios/axios'),
+      component: () => import('@/views/netWork/index'),
       name: 'aboutAxios',
-      meta: {
-        title: 'axios'
-      }
+      meta: {title: 'axios相关'},
+      alwaysShow: true,
+      children: [{
+        path: 'axios',
+        component: () => import('@/views/netWork/axios/axios'),
+        name: 'axios',
+        meta: {title: 'axios-文档'}
+      },{
+        path: 'cancelToken',
+        component: () => import('@/views/netWork/axios/cancelToken'),
+        name: 'cancelToken',
+        meta: {title: 'axios取消请求'}
+      } ]
     },
     {
       path: 'validate',
       component: () => import('@/views/netWork/index'),
       name: 'validate',
-      meta: {
-        title: 'validator'
-      },
+      meta: {title: 'validator'},
       alwaysShow: true,
       children: [{
         path: 'el-validate',
         component: () => import('@/views/netWork/validate/validate'),
         name: 'el-validate',
-        meta: {
-          title: 'element-表单验证'
-        }
+        meta: {title: 'element-表单验证'}
       }, ]
     },
     {
@@ -47,33 +51,25 @@ const netWorkRouter = {
       component: () => import('@/views/netWork/index'),
       name: 'DevTools',
       alwaysShow: true,
-      meta: {
-        title: 'DevTools'
-      },
+      meta: {title: 'DevTools'},
       children: [{
         path: 'Command',
         component: () => import('@/views/netWork/devtool/Command'),
         name: 'Command',
-        meta: {
-          title: 'Command'
-        }
+        meta: {title: 'Command'}
       }, ]
     },
     {
       path: 'linkTCP',
       component: () => import('@/views/netWork/linkTCP'),
       name: 'linkTCP',
-      meta: {
-        title: '关于TCP'
-      }
+      meta: { title: '关于TCP'}
     },
     {
       path: 'linkApi',
       component: () => import('@/views/netWork/index'),
       name: 'linkApi',
-      meta: {
-        title: '进阶API'
-      },
+      meta: { title: '进阶API'},
       children: [{
         path: 'IntersectionObserver',
         component: () => import('@/views/netWork/jsApi/IntersectionObserver'),
@@ -89,24 +85,18 @@ const netWorkRouter = {
       redirect: 'noRedirect',
       name: "Cascading",
       alwaysShow: true,
-      meta: {
-        title: '关于css进阶'
-      },
+      meta: {title: '关于css进阶'},
       children: [{
           path: 'gridlayout',
           component: () => import('@/views/netWork/css/gridLayout'),
           name: 'gridLayout',
-          meta: {
-            title: 'Grid网格布局'
-          }
+          meta: {title: 'Grid网格布局'}
         },
         {
           path: 'initip',
           component: () => import('@/views/netWork/css/initip'),
           name: 'initip',
-          meta: {
-            title: '自定义-tip'
-          }
+          meta: {title: '自定义-tip'}
         },
       ]
     },
@@ -116,71 +106,59 @@ const netWorkRouter = {
       redirect: 'noRedirect',
       name: "advance",
       alwaysShow: true,
-      meta: {
-        title: '关于js进阶',
-      },
+      meta: {title: '关于js进阶'},
       children: [{
           path: 'execution',
           component: () => import('@/views/netWork/advance/execution'),
           name: 'execution',
-          meta: {
-            title: 'js执行机制'
-          }
+          meta: {title: 'js执行机制'}
+        },
+        {
+          path: 'memory',
+          component: () => import('@/views/netWork/advance/memory'),
+          name: 'memory',
+          meta: { title: 'js内存'}
         },
         {
           path: 'tool',
           component: () => import('@/views/netWork/index'),
           name: 'tool',
-          meta: {
-            title: '工具函数'
-          },
+          meta: { title: '工具函数'},
           children: [{
               path: 'tooloften',
               component: () => import('@/views/netWork/advance/tooloften'),
               name: 'tooloften',
-              meta: {
-                title: '工具函数一'
-              }
+              meta: {title: '工具函数一'}
             },
             {
               path: 'toolusually',
               component: () => import('@/views/netWork/advance/toolusually'),
               name: 'toolusually',
-              meta: {
-                title: '工具函数二'
-              }
+              meta: {title: '工具函数二'}
             },
             {
               path: 'browsertool',
               component: () => import('@/views/netWork/advance/browsertool'),
               name: 'browsertool',
-              meta: {
-                title: '浏览器工具函数'
-              }
+              meta: {title: '浏览器工具函数'}
             },
             {
               path: 'browserstorage',
               component: () => import('@/views/netWork/advance/browserstorage'),
               name: 'browserstorage',
-              meta: {
-                title: 'storage工具函数'
-              }
+              meta: {title: 'storage工具函数'}
             },
             {
               path: 'tooldate',
               component: () => import('@/views/netWork/advance/tooldate'),
               name: 'tooldate',
-              meta: {
-                title: 'Date工具函数'
-              }
+              meta: {title: 'Date工具函数'}
             },
             {
               path: 'toolfunc',
               component: () => import('@/views/netWork/advance/toolfunc'),
               name: 'toolfunc',
-              meta: {
-                title: '工具函数三'
-              }
+              meta: { title: '工具函数三'}
             },
           ]
         },
@@ -188,41 +166,31 @@ const netWorkRouter = {
           path: 'ergodic',
           component: () => import('@/views/netWork/advance/ergodic'),
           name: 'ergodic',
-          meta: {
-            title: 'js遍历'
-          }
+          meta: {title: 'js遍历'}
         },
         {
           path: 'skill',
           component: () => import('@/views/netWork/advance/skill'),
           name: 'skill',
-          meta: {
-            title: 'js技巧'
-          }
+          meta: { title: 'js技巧'}
         },
         {
           path: 'bindcall',
           component: () => import('@/views/netWork/advance/bindcall'),
           name: 'bindcall',
-          meta: {
-            title: 'bind/call/apply'
-          }
+          meta: {title: 'bind/call/apply'}
         },
         {
           path: 'blob',
           component: () => import('@/views/netWork/advance/blob'),
           name: 'blob',
-          meta: {
-            title: 'Blob 对象'
-          }
+          meta: {title: 'Blob 对象'}
         },
         {
           path: 'drag',
           component: () => import('@/views/netWork/advance/drag'),
           name: 'drag',
-          meta: {
-            title: 'drag/drop事件'
-          }
+          meta: { title: 'drag/drop事件'}
         },
       ]
     },
@@ -232,24 +200,18 @@ const netWorkRouter = {
       redirect: 'noRedirect',
       name: "HTTP",
       alwaysShow: true,
-      meta: {
-        title: '关于HTTP',
-      },
+      meta: {title: '关于HTTP'},
       children: [{
           path: 'linkHTTP',
           component: () => import('@/views/netWork/http/linkHTTP'),
           name: 'linkHTTP',
-          meta: {
-            title: 'HTTP',
-          }
+          meta: {title: 'HTTP' }
         },
         {
           path: 'HTTPcode',
           component: () => import('@/views/netWork/http/HTTPcode'),
           name: 'HTTPcode',
-          meta: {
-            title: 'HTTP命令',
-          }
+          meta: {title: 'HTTP命令'}
         },
       ]
     },
@@ -266,17 +228,13 @@ const netWorkRouter = {
           path: 'npm',
           component: () => import('@/views/netWork/npmYarn/npm'),
           name: 'npm',
-          meta: {
-            title: 'npm'
-          }
+          meta: {title: 'npm' }
         },
         {
           path: 'plugiNpm',
           component: () => import('@/views/netWork/npmYarn/plugint'),
           name: 'plugiNpm',
-          meta: {
-            title: '插件'
-          }
+          meta: { title: '插件'}
         }
       ]
     },
@@ -286,16 +244,12 @@ const netWorkRouter = {
       redirect: 'noRedirect',
       name: "webpack",
       alwaysShow: true,
-      meta: {
-        title: '关于webpack',
-      },
+      meta: { title: '关于webpack'},
       children: [{
         path: 'webpackapi',
         component: () => import('@/views/netWork/webpack/webpackapi'),
         name: 'webpackapi',
-        meta: {
-          title: 'api简介',
-        }
+        meta: { title: 'api简介' }
       }, ]
     },
     {
@@ -304,24 +258,18 @@ const netWorkRouter = {
       redirect: 'noRedirect',
       name: "git",
       alwaysShow: true,
-      meta: {
-        title: 'Git使用',
-      },
+      meta: { title: 'Git使用' },
       children: [{
           path: 'gitCommand',
           component: () => import('@/views/netWork/git/gitCommand'),
           name: 'gitCommand',
-          meta: {
-            title: 'git命令-',
-          }
+          meta: { title: 'git命令-' }
         },
         {
           path: 'gitTool',
           component: () => import('@/views/netWork/git/gittool'),
           name: 'gitTool',
-          meta: {
-            title: 'git工具+',
-          }
+          meta: { title: 'git工具+' }
         },
       ]
     },
@@ -331,25 +279,19 @@ const netWorkRouter = {
       redirect: '/network/mysql/command',
       name: "mysql",
       alwaysShow: true,
-      meta: {
-        title: 'MySql',
-      },
+      meta: { title: 'MySql' },
       children: [{
         path: 'command',
         component: () => import('@/views/netWork/mysql/command'),
         name: 'command',
-        meta: {
-          title: 'mysql命令',
-        }
+        meta: { title: 'mysql命令' }
       }, ]
     },
     {
       path: 'knowlage',
       component: () => import('@/views/netWork/knowlage'),
       name: 'knowlage',
-      meta: {
-        title: '面试常见知识点'
-      }
+      meta: { title: '面试常见知识点' }
     },
   ]
 }

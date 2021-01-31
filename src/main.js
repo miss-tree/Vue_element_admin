@@ -19,13 +19,18 @@ import './utils/error-log' // error log
 
 import * as filters from './filters' // global filters
 
-import {debounce,waterMarker} from './utils/permission' // global filters
+import {
+  debounce,
+  waterMarker
+} from './utils/permission' // global filters
 Vue.directive('waterMarker', waterMarker)
 Vue.directive('debounce', debounce)
-// import { mockXHR } from '../mock'
-// if (process.env.NODE_ENV === 'production') {//在生产环境下要求moke请求XMLHttpRequest
-  // mockXHR()
-// }
+import {
+  mockXHR
+} from '../mock'
+if (process.env.NODE_ENV === 'production') { //在生产环境下要求moke请求XMLHttpRequest
+  mockXHR()
+}
 
 Vue.use(Element, {
   size: Cookies.get('size') || 'medium' // set element-ui default size
