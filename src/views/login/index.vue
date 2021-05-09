@@ -174,6 +174,9 @@ export default {
       // .catch(function(e) {
       //   console.log("Oops, error");
       // });
+      // debugger
+      this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
+      return
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true

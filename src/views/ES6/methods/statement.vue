@@ -12,7 +12,7 @@
                     这个区块对这些命令声明的变量，从一开始就形成了封闭作用域</li>
                 <li>不允许重复声明:let不允许在相同作用域内(作用域必须有大括号)，重复声明同一个变量</li>
             </ul>
-            <pre>
+            <pre v-pre>
         for(var i=0 ; i < 3; i++){
             setTimeout(()=>{
                 console.log(i)
@@ -26,6 +26,21 @@
             },0)
         } //输出 0  1  2
         console.log(i)//undefined   
+            </pre>
+            <p class="red">
+                ES6    在一段正常的代码执行中，在后面打印一个未定义的变量，之前正常执行的代码没有执行，直接报未定义变量的错误:
+            因为在执行代码前会将定义的变量过滤一遍，一旦不合法就直接报错，代码也就不会执行了
+            </p>
+            <pre>
+        let a=0
+        console.log('是否会被打印')
+        function fn(){
+            console.log(a)// a is undefined
+            let a=10;
+            console.log(a)
+        }
+        fn()
+        ===>  '是否会被打印' 没有被执行
             </pre>
         </div>
         <div>

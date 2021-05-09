@@ -15,6 +15,11 @@
 
         let namesSet = new Set(['a', 'b'])
         Array.from(namesSet) => ['a', 'b']
+
+        function fn(){
+            return Array.from(arguments)
+        }
+        fn(1,2,3,4,5)=> [1,2,3,4,5]
             </pre>
             <div>Array.from还可以接受第二个参数，作用类似于数组的map方法，
                 用来对每个元素进行处理，将处理后的值放入返回的数组。</div>
@@ -118,19 +123,19 @@
             <div>keys()是对键名的遍历、values()是对键值的遍历，entries()是对键值对的遍历。</div>
             <pre>
         for (let index of ['a', 'b'].keys()) {
-        console.log(index);
+            console.log(index);
         }
         => 0
         => 1
 
         for (let elem of ['a', 'b'].values()) {
-        console.log(elem);
+            console.log(elem);
         }
         => 'a'
         => 'b'
 
         for (let [index, elem] of ['a', 'b'].entries()) {
-        console.log(index, elem);
+            console.log(index, elem);
         }
         => 0 "a"
         => 1 "b"  

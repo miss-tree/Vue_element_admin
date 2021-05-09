@@ -12,6 +12,8 @@ const whiteList = ['/login', '/auth-redirect'] // no redirect whitelist
 
 router.beforeEach(async(to, from, next) => {
   NProgress.start()
+  // next()
+  // return
   document.title = getPageTitle(to.meta.title)//设置头部标题
 
   const hasToken = getToken()//获取用户token

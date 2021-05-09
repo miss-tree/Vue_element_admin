@@ -54,7 +54,9 @@
             </pre>
             <div>默认值的情况</div>
             <div>允许指定默认值,ES6 内部使用严格相等运算符（===），判断一个位置是否有值。
-                所以，只有当一个数组成员严格等于undefined，默认值才会生效。</div>
+                所以，<span class="red">只有当一个数组成员严格等于undefined</span>，默认值才会生效。
+                结构赋值的时候,没有附上值得才会走默认值,能赋值就不会走默认值
+            </div>
             <pre>
         let [foo = true] = [];
         foo => true
@@ -72,6 +74,12 @@
         let [x = 1, y = x] = [2];    => x=2; y=2
         let [x = 1, y = x] = [1, 2]; => x=1; y=2
         let [x = y, y = 1] = [];     => ReferenceError: y is not defined
+
+        function fn(){
+            console.log('赋值')
+        }
+        let [x=fn(),y=0]=[2,3,5,8,9]
+        ==> 只要变量所占数组中位置值不是 undefined ，默认的 fn() 就不会执行
             </pre>
         </div>
         <div>
@@ -100,6 +108,10 @@
         let { foo: baz } = { foo: 'aaa', bar: 'bbb' };
         baz => "aaa"
         foo => error: foo is not defined
+
+        若属性在父对象中部存在就会直接报错
+        let { foo: {baz} } = { foo: 'aaa', bar: 'bbb' };
+         error: can't match against  'undefined' or 'null'
             </pre>
             <div>默认值</div>
             <pre>
@@ -124,6 +136,7 @@
 
         var {x = 3} = {x: null};
         x => null     
+        
             </pre>
             <div>特殊情况</div>
             <pre>
@@ -139,6 +152,10 @@
         ({} = [true, false]);
         ({} = 'abc');
         ({} = []);
+
+        let {a,b}= 1;
+        ===> undefined undefined
+        因为对象结构默认将右边的变成一个对象，对象中没有对应属性就报 undefined
             </pre>
         </div>
         <string />   

@@ -25,6 +25,7 @@ import SidebarItem from './SidebarItem'
 import variables from '@/styles/variables.scss'
 
 export default {
+  name:'leftSlider',
   components: { SidebarItem, Logo },
   computed: {
     ...mapGetters([

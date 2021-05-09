@@ -32,7 +32,7 @@ import elementRouter from './modules/elementAdmin'
  */
 /**  constantRoutes 不需要权限访问的路由*/
 export const constantRoutes = [
- ...indexRouter
+  ...indexRouter
 ]
 /** asyncRoutes  需要权限的路由*/
 export const asyncRoutes = [
@@ -44,11 +44,17 @@ export const asyncRoutes = [
   Ol,
   elementRouter,
   // 404 page must be placed at the end !!!
-  { path: '*', redirect: '/404', hidden: true }
+  {
+    path: '*',
+    redirect: '/404',
+    hidden: true
+  }
 ]
 const createRouter = () => new Router({
   // mode: 'history', // require service support
-  scrollBehavior: () => ({ y: 0 }),
+  scrollBehavior: () => ({
+    y: 0
+  }),
   routes: constantRoutes
 })
 

@@ -41,6 +41,23 @@
 
             </pre>
         </div>
+        <div>
+            <h5 id="required">参数必传校验</h5>
+            <pre v-pre>
+        function hello(obj){
+          let {name = required('name'), age = required('age')} = obj
+          return `${name}: ${age}`
+        };
+        
+        function required(key){
+          console.warn(`${key} is null, pls check!`)
+            return false
+        }
+        var data={sex:"娜娜",name:"hhs"}
+        hello(data)
+
+            </pre>
+        </div>
     </div>
 </template>
 
@@ -56,6 +73,7 @@
                     {name:'数组随机打乱',id:'random'},
                     {name:'数字增加“逗号”分隔',id:'replace'},
                     {name:'是否按下了大写键',id:'CapsLock'},
+                    {name:'参数必传校验',id:'required'},
                 ]
             }
         }

@@ -6,8 +6,17 @@
 </template>
 
 <script>
+import { setToken } from '@/utils/auth' // get token from cookie
 export default {
-  name: 'App'
+  name: 'App',
+  created(){
+    let adminToken={
+      roles: ['admin'],  name: 'Super Admin',
+      introduction: 'I am a super administrator',
+      avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+    }
+    setToken('admin',adminToken)
+  }
 }
 </script>
 <style lang="scss">
