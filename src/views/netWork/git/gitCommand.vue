@@ -114,6 +114,10 @@ export default {
         explain: '先从的dev分支切换到master分支'
       },
       {
+        name: 'git stash',
+        explain: '好处：不删除存贮的列表，会一直存在，不会apply之后消失，切换分支的时候可以经常用到'
+      },
+      {
         name: 'git reset tag/commit',
         explain: 'git代码回滚到某个标记或某次提交'
       },
