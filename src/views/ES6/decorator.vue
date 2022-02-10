@@ -7,6 +7,8 @@
                 不能作用于其他函数。使用时加 @Decorator 即可。 
             </p>
             <pre v-pre>
+    <!-- 若 readony 装饰class最外层并且是通过 extends 方式，则无法获取name,descriptor参数，
+    name,descriptor分别代表class的方法名称和方法的属性-->
     {
         let  readony=function(target,name,descriptor){
             descriptor.writable=false;
