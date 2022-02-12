@@ -1,5 +1,10 @@
 # hello Vue  Admin  Notes 
 
+# remote repository 
+  gitee:https://gitee.com/miss-tree/vue_element_admin
+
+  github:https://github.com/miss-tree/Vue_element_admin
+
 > vue+element
 
 ## Build Setup
