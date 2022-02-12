@@ -21,13 +21,17 @@
                     该钩子在服务器端渲染期间不被调用。
                 </li>
                 <li>
-                    mounted:实例被挂载后调用, 不会保证所有的子组件也都一起被挂载。该钩子在服务器端渲染期间不被调用。
+                    mounted:实例被挂载后调用, 不会保证所有的子组件也都一起被挂载。
+                    该钩子在服务器端渲染期间不被调用。
                 </li>
                 <li>
-                    beforeUpdate:数据更新时调用，该钩子在服务器端渲染期间不被调用，因为只有初次渲染会在服务端进行。
+                    beforeUpdate:数据更新时调用，该钩子在服务器端渲染期间不被调用，
+                    因为只有初次渲染会在服务端进行。
                 </li>
                 <li>
-                    updated:当这个钩子被调用时，组件 DOM 已经更新, 不会保证所有的子组件也都一起被重绘。该钩子在服务器端渲染期间不被调用。
+                    updated:当这个钩子被调用时，组件 DOM 已经更新, 
+                    不会保证所有的子组件也都一起被重绘。
+                    该钩子在服务器端渲染期间不被调用。
                 </li>
                 <li>
                     activated:被 keep-alive 缓存的组件激活时调用。
@@ -58,7 +62,8 @@
                 所以父组件的mounted肯定是在子组件mounted之后
             </p>
             <div>
-                So：「父」beforeCreate → 「父」created → 「父」beforeMount → 「子」beforeCreate → 「子」created → 「子」beforeMount → 「子」mounted → 「父」mounted
+                So：「父」beforeCreate → 「父」created → 「父」beforeMount → 「子」beforeCreate → 
+                「子」created → 「子」beforeMount → 「子」mounted → 「父」mounted
             </div>
             <ul>
                 <li>
@@ -129,6 +134,7 @@
         </div>
         <div>
             <img src="@/assets/lifecycle.png" alt="" style="width:80%">
+            <img src="@/assets/lifecycle.jpg" alt="" style="width:80%">
         </div>
     </div>
 </template>
