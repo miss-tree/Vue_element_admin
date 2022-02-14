@@ -137,6 +137,12 @@ const netWorkRouter = {
               meta: {title: '工具函数二'}
             },
             {
+              path: 'toolfunc',
+              component: () => import('@/views/netWork/advance/toolfunc'),
+              name: 'toolfunc',
+              meta: { title: '工具函数三' }
+            },
+            {
               path: 'browsertool',
               component: () => import('@/views/netWork/advance/browsertool'),
               name: 'browsertool',
@@ -153,12 +159,6 @@ const netWorkRouter = {
               component: () => import('@/views/netWork/advance/tooldate'),
               name: 'tooldate',
               meta: {title: 'Date工具函数'}
-            },
-            {
-              path: 'toolfunc',
-              component: () => import('@/views/netWork/advance/toolfunc'),
-              name: 'toolfunc',
-              meta: { title: '工具函数三'}
             },
           ]
         },

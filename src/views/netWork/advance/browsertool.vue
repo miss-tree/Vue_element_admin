@@ -12,18 +12,12 @@
             <pre v-pre>
         /**
         * @param {*} name
-        * @param {*} origin
-        */
-        export function getUrlParam(name, origin = null) {
-            let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-            let r = null;
-            if (origin == null) {
-                r = window.location.search.substr(1).match(reg);
-            } else {
-                r = origin.substr(1).match(reg);
-            }
-            if (r != null) return decodeURIComponent(r[2]);
-            return null;
+        * @param {*} url
+        */      
+        function getQueryString(name,url) {
+          const url_string = url //"https://www.baidu.com/t.html?name=mick&age=20"; // window.location.href
+          const url = new URL(url_string);
+          return url.searchParams.get(name);
         }
 
         /**
@@ -43,6 +37,33 @@
                 obj[key] = value;
             }
             return obj[name];
+        }
+
+        // obj转换url参数   url = url + '?' + toStringQuery(obj)
+        /**
+        * @param {*} obj
+        */
+        export function toStringQuery(obj) {
+          Object.keys(obj).forEach(key => { obj[key] ??= "$$$" }) // Ts写法
+          return Object.keys(obj).filter(key => obj[key] !== '$$$').map((key) => {
+            return (key) + "=" + obj[key]
+          }).join("&");
+        }
+
+        /**
+        * @param {*} name
+        * @param {*} origin
+        */
+        export function getUrlParam(name, origin = null) {
+            let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            let r = null;
+            if (origin == null) {
+                r = window.location.search.substr(1).match(reg);
+            } else {
+                r = origin.substr(1).match(reg);
+            }
+            if (r != null) return decodeURIComponent(r[2]);
+            return null;
         }
             </pre>
         </div>

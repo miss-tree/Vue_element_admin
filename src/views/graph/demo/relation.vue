@@ -19,7 +19,7 @@
 
 <script>
   // import relation from './js/relation'
-  import relation from './js/graphAll'
+  // import relation from './js/graphAll'
   import {
     types
   } from '@babel/core'
