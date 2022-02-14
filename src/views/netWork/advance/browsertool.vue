@@ -46,8 +46,28 @@
         export function toStringQuery(obj) {
           Object.keys(obj).forEach(key => { obj[key] ??= "$$$" }) // Ts写法
           return Object.keys(obj).filter(key => obj[key] !== '$$$').map((key) => {
-            return (key) + "=" + obj[key]
+            return (key) + "=" + obj[key]  //  或者 return encodeURIComponent(key) + "=" + encodeURIComponent(obj[key])
           }).join("&");
+        }
+
+        // url参数转换obj   
+        /**
+        * @param {*} url
+        */
+        export function queryToObject(url) {
+          <!-- 可能url后面还有锚点，使用 URL 对象 -->
+          const query = new URL(url).search.slice(1) // .slice(1) 去除参数前 “？”  
+          if(query.length>1){ //有参数
+            let arr = query.split('&')
+            let obj = {}
+            for(let n of arr){
+              let key = decodeURIComponent(n.split('=')[0]) 
+              let value = decodeURIComponent(n.split('=')[1]) 
+              obj[key] = value
+            }
+
+            return obj
+          }
         }
 
         /**
