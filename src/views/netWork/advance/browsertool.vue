@@ -69,6 +69,8 @@
             return obj
           }
         }
+        url = "https://blog.csdn.net/weixin?hello=hei&world=ball#idsda"
+        ==> {hello: 'hei', world: 'ball'}
 
         /**
         * @param {*} name
