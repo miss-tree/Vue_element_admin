@@ -19,71 +19,17 @@
             </pre>
     </div>
     <div>
-      <h5 id="localStorageGet">encodeURIComponent()和decod</h5>
+      <h5 id="localStorageGet">encodeURIComponent()decodeURIComponent()</h5>
+      <p>主要编码中文，字母和数字不编码</p>
       <pre v-pre>
-        /**
-        * @param {String} key  属性
-        */
-        export const localStorageGet = (key) => {
-            return localStorage.getItem(key)
-        };
-            </pre>
-    </div>
-    <div>
-      <h5 id="localStorageRemove">localStorage 移除</h5>
-      <pre v-pre>
-        /**
-        * @param {String} key  属性
-        */
-        export const localStorageRemove = (key) => {
-            localStorage.removeItem(key)
-        };
+        encodeURIComponent('你好')    // "%E4%BD%A0%E5%A5%BD"
+        encodeURIComponent('test1234')    // "test1234"
 
-        localStorage.claer() // 清除全部
+        decodeURIComponent(encodedURI)
+        decodeURIComponent('%3Fx%3Dtest')  //  ?x=test
             </pre>
     </div>
-    <div>
-      <h5 id="localStorageSetExpire">localStorage 存贮某一段时间失效</h5>
-      <pre v-pre>
-        /**
-        * @param {String} key  属性
-        * @param {*} value 存贮值
-        * @param { number } expire 过期时间,毫秒数
-        */
-        export const localStorageSetExpire = (key, value, expire) => {
-            if (typeof (value) === 'object') value = JSON.stringify(value);
-            localStorage.setItem(key, value);
-            setTimeout(() => {
-                localStorage.removeItem(key)
-            }, expire)
-        };
-            </pre>
-    </div>
-    <div>
-      <h5 id="sessionStorageSet">sessionStorage 存贮</h5>
-      <pre v-pre>
-        /**
-        * @param {String} key  属性
-        * @param {*} value 值
-        */
-        export const sessionStorageSet = (key, value) => {
-            if (typeof (value) === 'object') value = JSON.stringify(value);
-            sessionStorage.setItem(key, value)
-        };
-
-            </pre>
-    </div>
-    <div>
-      <h5 id="sessionStorageGet">sessionStorage 获取</h5>
-      <pre v-pre>
-        /**
-        * @param {String} key  属性
-        */
-        export const sessionStorageGet = (key) => {
-            return sessionStorage.getItem(key)
-        };
-            </pre>
-    </div>
+     
     <div>
       <h5 id="cookieGet">base64编码</h5>
       <p>上面的方法都不支持对数字的编码，遇到数字会直接返回，base64编码会将数字变成字符串然后在编码，但是解码返回的也是字符串而不是数字了</p>
@@ -177,17 +123,11 @@ export default {
   data () {
     return {
       list: [
-        { name: 'localStorage 存贮', id: 'localStorageSet' },
-        { name: 'localStorage 获取', id: 'localStorageGet' },
-        { name: 'localStorage 移除', id: 'localStorageRemove' },
-        { name: 'localStorage存贮时间', id: 'localStorageSetExpire' },
-        { name: 'sessionStorage 存贮', id: 'sessionStorageSet' },
-        { name: 'sessionStorage 获取', id: 'sessionStorageGet' },
-        { name: 'sessionStorage 删除', id: 'sessionStorageRemove' },
-        { name: 'sessionStorage存贮时间', id: 'sessionStorageSetExpire' },
-        { name: 'cookie 存贮', id: 'cookieSet' },
-        { name: 'cookie 获取', id: 'cookieGet' },
-        { name: 'cookie 删除', id: 'cookieRemove' },
+        { name: 'escape()', id: 'localStorageSet' },
+        { name: 'encodeURIComponent()/decodeURIComponent()', id: 'localStorageGet' },
+        { name: 'base64编码(推荐)', id: 'cookieGet' },
+        { name: '二进制', id: 'cookieRemove' },
+        { name: '其他编码加密方法', id: 'other' },
       ]
     }
   }
