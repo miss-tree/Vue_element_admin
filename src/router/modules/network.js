@@ -169,6 +169,12 @@ const netWorkRouter = {
           meta: {title: 'js遍历'}
         },
         {
+          path: 'unicode',
+          component: () => import('@/views/netWork/advance/unicode'),
+          name: 'unicode',
+          meta: { title: 'js 编码解码' }
+        },
+        {
           path: 'skill',
           component: () => import('@/views/netWork/advance/skill'),
           name: 'skill',
