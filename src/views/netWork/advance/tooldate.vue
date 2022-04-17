@@ -268,6 +268,67 @@
         }
             </pre>
         </div>
+        <div>
+            <h5 id="isSubnetMask">设置一个月后</h5>
+            <pre v-pre>
+        /**
+        * @return {string} 自定义返回时间或期间的日期数组
+        */
+        
+        function getNowdate(){
+            var date_now = new Date()//获取当前时间
+            var year = date_now.getFullYear()//获取当前时间的年份
+            var month = date_now.getMonth()//获取当前时间的月份
+            var day = date_now.getDate()//获取当前时间的日
+            var days = new Date(year,month,0)//将获取到的年月赋值给days
+            days = days.getDate()//获取当前年月的日
+            var year2 = year
+            var month2 =  parseInt(month+2)//获取当前月份的1一个月以后的月份
+            if(month2 > 12){
+                year2 = parseInt(year2) + 1
+                month2 = parseInt(month2) % 12
+            }//考虑到12月要是获取一个月以后，就是一月，年份需要加一 ，一年没有13月，所以%12，取得来年1月
+            var day2 = day
+            var days2 = new Date(year2,month2,0)
+            days2 = days2.getDate()
+            if(day2>days2){
+                day2 = days2
+            }//获取了当前年份的日和1个月以后的日，为的就是判断如果前一个月是有31号，后一个月没有，就将一个月以后的日期取到，赋值给day2
+            if(month2 &lt; 10){
+                month2 = '0' + month2
+            }
+            var time = year2 + '-' + month2 + '-' + day2
+            return time
+            <!-- 返回期间数据 -->
+            let isOver = false
+            let arr = []
+            let curM =  month
+            let curD = day  
+            while (!isOver) {
+                if(curD &lt; =days&&curM!=month2){//当前月是否完结
+                    curD = curD+1
+                    arr.push(`${curM}月-${curD}日`)
+                    if(curD == days){// 本月最后一天
+                        curM +=1
+                        curD = 1
+                        arr.push(`${curM}月-${curD}日`)
+                    }
+                    continue
+                }
+                if(curD &lt; =day2&&curM==month2){//下月是否完结
+                    curD = curD+1
+                    arr.push(`${curM}月-${curD}日`)
+                    if(curD == day2){// 下月最后一天
+                        isOver =true
+                    }
+                    continue
+                }
+
+            }
+            return arr
+        }
+            </pre>
+        </div>
     </div>
 </template>
 
@@ -292,7 +353,7 @@
                     {name:'验证日期是不是今天',id:'isToday'},
                     {name:'验证日期是否是昨天',id:'isYesterday'},
                     {name:'设置日期',id:'convertDate'},
-                    // {name:'验证子网掩码',id:'isSubnetMask'},
+                    {name:'设置一个月后',id:'isSubnetMask'},
                 ]
             }
         }
